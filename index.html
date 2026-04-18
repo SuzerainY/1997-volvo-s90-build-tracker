@@ -1,0 +1,1087 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1997 Volvo S90 — Build Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #0f1117;
+  --bg-card:     #161b27;
+  --bg-section:  #1a2035;
+  --bg-hover:    #1e2640;
+  --volvo-blue:  #003057;
+  --volvo-light: #0a5fa8;
+  --accent:      #1a7fd4;
+  --accent-glow: rgba(26,127,212,0.25);
+  --green:       #22c55e;
+  --green-dim:   rgba(34,197,94,0.15);
+  --amber:       #f59e0b;
+  --amber-dim:   rgba(245,158,11,0.15);
+  --red:         #ef4444;
+  --text-primary:   #e8eaf0;
+  --text-secondary: #8b93a8;
+  --text-muted:     #4a5268;
+  --border:      rgba(255,255,255,0.07);
+  --border-card: rgba(255,255,255,0.1);
+  --radius:      12px;
+  --radius-sm:   8px;
+  --shadow:      0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg:   0 8px 48px rgba(0,0,0,0.6);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LANDING SCREEN ──────────────────────────────────── */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: linear-gradient(160deg, #0a1628 0%, #0f1117 50%, #0d1520 100%);
+  text-align: center;
+}
+
+.landing-logo {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(26,127,212,0.12);
+  border: 1px solid rgba(26,127,212,0.25);
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.landing-logo::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.landing h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.landing h1 span {
+  background: linear-gradient(135deg, #4da6ff 0%, #1a7fd4 50%, #0a5fa8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-sub {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 420px;
+}
+
+.btn-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--volvo-light), var(--accent));
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  padding: 14px 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(26,127,212,0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  letter-spacing: -0.01em;
+}
+
+.btn-open:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 32px rgba(26,127,212,0.5);
+}
+
+.btn-open:active {
+  transform: translateY(0);
+}
+
+.btn-open:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.landing-hint {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.no-api-msg {
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: var(--radius-sm);
+  color: #fca5a5;
+  font-size: 13px;
+  max-width: 420px;
+}
+
+/* ── SAVE INDICATOR ──────────────────────────────────── */
+.save-indicator {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.save-indicator.visible { opacity: 1; }
+
+.save-indicator.saving {
+  background: rgba(26,127,212,0.15);
+  border: 1px solid rgba(26,127,212,0.3);
+  color: var(--accent);
+}
+
+.save-indicator.saved {
+  background: rgba(34,197,94,0.15);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: var(--green);
+}
+
+.save-indicator.error {
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: var(--red);
+}
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0a1628 0%, #0f1117 50%, #0d1520 100%);
+  border-bottom: 1px solid var(--border-card);
+  padding: 64px 24px 56px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,48,87,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 50%, rgba(26,127,212,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-silhouette {
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 520px;
+  opacity: 0.045;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .hero-silhouette { width: 300px; right: -40px; }
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(26,127,212,0.12);
+  border: 1px solid rgba(26,127,212,0.25);
+  border-radius: 100px;
+  padding: 4px 12px;
+  margin-bottom: 20px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, #4da6ff 0%, #1a7fd4 50%, #0a5fa8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 36px;
+}
+
+.stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.stat-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-card);
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.stat-chip .label {
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.stat-chip .arrow { color: var(--accent); font-size: 16px; line-height: 1; }
+.stat-chip .value-goal { color: var(--green); font-weight: 700; }
+
+.stat-chip.stage-chip {
+  background: rgba(26,127,212,0.12);
+  border-color: rgba(26,127,212,0.3);
+  color: var(--accent);
+}
+
+.stage-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── OVERALL PROGRESS ─────────────────────────────────── */
+.overall-progress {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.progress-pct {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.progress-track {
+  height: 6px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--volvo-light), var(--accent));
+  box-shadow: 0 0 12px rgba(26,127,212,0.5);
+  transition: width 0.6s ease;
+}
+
+.progress-fill.green {
+  background: linear-gradient(90deg, #16a34a, var(--green));
+  box-shadow: 0 0 12px rgba(34,197,94,0.4);
+}
+
+/* ── MAIN LAYOUT ──────────────────────────────────────── */
+.main-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── STAGE CARD ───────────────────────────────────────── */
+.stage-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.stage-card.active {
+  border-color: rgba(26,127,212,0.35);
+  box-shadow: 0 0 0 1px rgba(26,127,212,0.15), var(--shadow-lg);
+}
+
+.stage-card.locked {
+  opacity: 0.55;
+  filter: saturate(0.6);
+}
+
+.stage-card.locked:hover { opacity: 0.65; }
+
+.stage-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.stage-number {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.stage-number.active-num {
+  background: linear-gradient(135deg, var(--volvo-blue), var(--volvo-light));
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(10,95,168,0.4);
+}
+
+.stage-number.locked-num {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.stage-meta { flex: 1; min-width: 0; }
+
+.stage-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.stage-title { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+
+.stage-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+
+.badge-active {
+  background: rgba(26,127,212,0.2);
+  color: var(--accent);
+  border: 1px solid rgba(26,127,212,0.35);
+}
+
+.badge-locked {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.stage-goal {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.stage-goal strong { color: var(--text-primary); font-weight: 500; }
+
+.stage-progress { display: flex; align-items: center; gap: 12px; }
+.stage-progress .progress-track { flex: 1; height: 4px; }
+.stage-progress .progress-pct { font-size: 12px; min-width: 36px; text-align: right; }
+
+/* ── SECTIONS ─────────────────────────────────────────── */
+.sections { padding: 8px 0; }
+
+details.section { border-bottom: 1px solid var(--border); }
+details.section:last-child { border-bottom: none; }
+
+summary.section-toggle {
+  list-style: none;
+  width: 100%;
+  cursor: pointer;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  transition: background 0.2s ease;
+  color: inherit;
+}
+
+summary.section-toggle::-webkit-details-marker { display: none; }
+summary.section-toggle::marker { display: none; }
+summary.section-toggle:hover { background: var(--bg-hover); }
+
+.section-toggle-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--text-secondary);
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+
+details.section[open] .section-toggle-icon {
+  transform: rotate(90deg);
+  background: rgba(26,127,212,0.15);
+  border-color: rgba(26,127,212,0.3);
+  color: var(--accent);
+}
+
+.section-title-group { flex: 1; min-width: 0; }
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.section-status {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.status-done {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(34,197,94,0.25);
+}
+
+.status-partial {
+  background: rgba(245,158,11,0.12);
+  color: var(--amber);
+  border: 1px solid rgba(245,158,11,0.25);
+}
+
+.status-upnext {
+  background: rgba(26,127,212,0.15);
+  color: #60b4ff;
+  border: 1px solid rgba(26,127,212,0.35);
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26,127,212,0); }
+  50% { box-shadow: 0 0 8px 2px rgba(26,127,212,0.3); }
+}
+
+.status-todo {
+  background: rgba(255,255,255,0.04);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.section-mini-progress { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+
+.section-mini-track {
+  width: 60px; height: 3px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.section-mini-fill { height: 100%; border-radius: 100px; background: var(--green); }
+.section-mini-label { font-size: 11px; color: var(--text-muted); }
+
+.section-content { padding: 4px 28px 16px 60px; }
+
+/* ── LOCKED NOTICE ────────────────────────────────────── */
+.locked-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 28px 20px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── TASK ITEMS ───────────────────────────────────────── */
+.task-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.task-item:hover { background: rgba(255,255,255,0.04); }
+.task-item.done { opacity: 0.65; }
+.task-item.done:hover { background: rgba(34,197,94,0.04); }
+
+.task-item.upnext-item {
+  background: rgba(26,127,212,0.07);
+  border: 1px solid rgba(26,127,212,0.18);
+}
+
+.task-item.upnext-item:hover { background: rgba(26,127,212,0.11); }
+
+.task-item.locked-task {
+  pointer-events: none;
+}
+
+.task-check {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  margin-top: 2px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.task-check.checked {
+  background: var(--green-dim);
+  border: 1px solid rgba(34,197,94,0.4);
+  color: var(--green);
+}
+
+.task-check.unchecked {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.task-check.locked-check { opacity: 0.35; }
+
+.task-body { flex: 1; min-width: 0; }
+
+.task-text { font-size: 13.5px; color: var(--text-primary); line-height: 1.5; }
+.task-item.done .task-text { text-decoration: line-through; color: var(--text-secondary); }
+
+.task-note { font-size: 12px; color: var(--text-muted); margin-top: 3px; line-height: 1.5; }
+
+.task-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 100px;
+}
+
+.tag-parts {
+  background: rgba(245,158,11,0.12);
+  color: var(--amber);
+  border: 1px solid rgba(245,158,11,0.25);
+}
+
+/* ── FOOTER ───────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-top: 8px; }
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero { padding: 48px 16px 44px; }
+  .main-content { padding: 24px 16px 60px; }
+  .stage-header { padding: 20px 20px 16px; }
+  summary.section-toggle { padding: 14px 20px; }
+  .section-content { padding: 4px 20px 14px 52px; }
+  .locked-notice { margin: 0 20px 16px; }
+  .stats-bar { gap: 8px; }
+  .stat-chip { font-size: 12px; padding: 6px 12px; }
+}
+</style>
+</head>
+<body>
+
+<div id="save-indicator" class="save-indicator" aria-live="polite"></div>
+<div id="app"></div>
+
+<script>
+// ── State ────────────────────────────────────────────────
+let dirHandle = null;
+let currentData = null;
+const openSections = new Set();
+let saveTimer = null;
+
+// ── Save indicator ───────────────────────────────────────
+function showSave(state, text) {
+  const el = document.getElementById('save-indicator');
+  el.className = 'save-indicator visible ' + state;
+  el.textContent = text;
+  if (saveTimer) clearTimeout(saveTimer);
+  if (state === 'saved') {
+    saveTimer = setTimeout(() => {
+      el.classList.remove('visible');
+    }, 2000);
+  }
+}
+
+// ── File System Access API ───────────────────────────────
+async function openFolder() {
+  try {
+    dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+    const data = await readData();
+    currentData = data;
+    render(data);
+  } catch (err) {
+    if (err.name !== 'AbortError') {
+      console.error('Failed to open folder:', err);
+      alert('Could not open folder: ' + err.message);
+    }
+  }
+}
+
+async function readData() {
+  const fileHandle = await dirHandle.getFileHandle('data.json');
+  const file = await fileHandle.getFile();
+  const text = await file.text();
+  return JSON.parse(text);
+}
+
+async function saveData(data) {
+  if (!dirHandle) {
+    showSave('error', 'Save failed — no folder open');
+    return;
+  }
+  showSave('saving', 'Saving...');
+  try {
+    const fileHandle = await dirHandle.getFileHandle('data.json', { create: false });
+    const writable = await fileHandle.createWritable();
+    await writable.write(JSON.stringify(data, null, 2));
+    await writable.close();
+    showSave('saved', 'Saved ✓');
+  } catch (err) {
+    console.error('Save failed:', err);
+    showSave('error', 'Save failed');
+  }
+}
+
+// ── Task toggle ──────────────────────────────────────────
+function toggleTask(stageId, sectionId, taskId) {
+  const stage = currentData.stages.find(s => s.id === stageId);
+  if (!stage || stage.status === 'locked') return;
+  const section = stage.sections.find(s => s.id === sectionId);
+  if (!section) return;
+  const task = section.tasks.find(t => t.id === taskId);
+  if (!task) return;
+  task.done = !task.done;
+  // Optimistic re-render
+  render(currentData);
+  // Async save
+  saveData(currentData);
+}
+
+// ── Helpers ──────────────────────────────────────────────
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function calcProgress(tasks) {
+  const done = tasks.filter(t => t.done).length;
+  return { done, total: tasks.length, pct: tasks.length ? Math.round((done / tasks.length) * 100) : 0 };
+}
+
+function sectionStatus(section) {
+  const { done, total } = calcProgress(section.tasks);
+  if (total === 0) return 'todo';
+  if (done === total) return 'done';
+  if (section.upNext) return 'upnext';
+  if (done > 0) return 'partial';
+  return 'todo';
+}
+
+function sectionStatusBadge(section) {
+  const s = sectionStatus(section);
+  if (s === 'done')    return '<span class="section-status status-done">Complete</span>';
+  if (s === 'upnext')  return '<span class="section-status status-upnext">&#9889; Up Next</span>';
+  if (s === 'partial') return '<span class="section-status status-partial">In Progress</span>';
+  return '<span class="section-status status-todo">Todo</span>';
+}
+
+function activeStageLabel(stages) {
+  const active = stages.find(s => s.status === 'active');
+  if (!active) return '';
+  return active.label + ' — In Progress';
+}
+
+// ── Render helpers ───────────────────────────────────────
+function renderTask(task, isUpNext, isLocked, stageId, sectionId) {
+  const checkClass = task.done ? 'checked' : ('unchecked' + (isLocked ? ' locked-check' : ''));
+  const checkMark = task.done ? '&#10003;' : '';
+  const itemClass = [
+    'task-item',
+    task.done ? 'done' : '',
+    isUpNext && !task.done ? 'upnext-item' : '',
+    isLocked ? 'locked-task' : ''
+  ].filter(Boolean).join(' ');
+
+  const clickAttr = isLocked
+    ? ''
+    : ` onclick="toggleTask('${esc(stageId)}','${esc(sectionId)}','${esc(task.id)}')"`;
+
+  const noteHtml = task.note
+    ? `<p class="task-note">${esc(task.note)}</p>`
+    : '';
+
+  const tagHtml = task.tag === 'parts-in-hand'
+    ? `<div class="task-tags"><span class="tag tag-parts">Parts in Hand</span></div>`
+    : '';
+
+  return `
+    <li class="${itemClass}"${clickAttr}>
+      <span class="task-check ${checkClass}">${checkMark}</span>
+      <div class="task-body">
+        <span class="task-text">${esc(task.text)}</span>
+        ${noteHtml}
+        ${tagHtml}
+      </div>
+    </li>`;
+}
+
+function renderSection(section, isLocked, stageId) {
+  const { done, total, pct } = calcProgress(section.tasks);
+  const isOpen = openSections.has(section.id);
+  const openAttr = isOpen ? ' open' : '';
+  const badge = sectionStatusBadge(section);
+  const isUpNext = !!section.upNext;
+
+  const tasksHtml = section.tasks
+    .map(t => renderTask(t, isUpNext, isLocked, stageId, section.id))
+    .join('');
+
+  return `
+    <details class="section" id="section-${esc(section.id)}"${openAttr}>
+      <summary class="section-toggle">
+        <span class="section-toggle-icon">&#9658;</span>
+        <div class="section-title-group">
+          <div class="section-title">
+            ${esc(section.title)}
+            ${badge}
+          </div>
+          <div class="section-mini-progress">
+            <div class="section-mini-track">
+              <div class="section-mini-fill" style="width:${pct}%"></div>
+            </div>
+            <span class="section-mini-label">${done} / ${total} done</span>
+          </div>
+        </div>
+      </summary>
+      <div class="section-content">
+        <ul class="task-list">
+          ${tasksHtml}
+        </ul>
+      </div>
+    </details>`;
+}
+
+function renderStage(stage, index) {
+  const isActive = stage.status === 'active';
+  const isLocked = stage.status === 'locked';
+  const cardClass = 'stage-card' + (isActive ? ' active' : '') + (isLocked ? ' locked' : '');
+  const numClass = isActive ? 'active-num' : 'locked-num';
+  const badgeHtml = isActive
+    ? '<span class="stage-badge badge-active">In Progress</span>'
+    : '<span class="stage-badge badge-locked">&#128274; Locked</span>';
+
+  // Aggregate progress across all sections
+  const allTasks = stage.sections.flatMap(s => s.tasks);
+  const { done, total, pct } = calcProgress(allTasks);
+  const fillClass = pct === 100 ? 'progress-fill green' : 'progress-fill';
+  const pctColor = pct === 100 ? 'var(--green)' : 'var(--accent)';
+
+  const lockedNotice = isLocked && index > 0
+    ? `<div class="locked-notice">
+        <span>&#128274;</span>
+        <span>Complete ${currentData.stages[index - 1].label} — ${currentData.stages[index - 1].title} before unlocking this stage.</span>
+       </div>`
+    : '';
+
+  const sectionsHtml = stage.sections.map(s => renderSection(s, isLocked, stage.id)).join('');
+
+  return `
+    <article class="${cardClass}">
+      <div class="stage-header">
+        <div class="stage-number ${numClass}">${esc(stage.label)}</div>
+        <div class="stage-meta">
+          <div class="stage-title-row">
+            <span class="stage-title">${esc(stage.title)}</span>
+            ${badgeHtml}
+          </div>
+          <p class="stage-goal">${esc(stage.goal)} &nbsp;&middot;&nbsp; Target: <strong>${esc(stage.target)}</strong></p>
+          <div class="stage-progress">
+            <div class="progress-track">
+              <div class="${fillClass}" style="width:${pct}%"></div>
+            </div>
+            <span class="progress-pct" style="color:${pctColor}">${pct}%</span>
+          </div>
+        </div>
+      </div>
+      <div class="sections">
+        ${lockedNotice}
+        ${sectionsHtml}
+      </div>
+    </article>`;
+}
+
+// ── Main render ──────────────────────────────────────────
+function render(data) {
+  const app = document.getElementById('app');
+  const meta = data.meta;
+
+  // Sync open sections from DOM before re-render
+  document.querySelectorAll('details.section').forEach(el => {
+    const id = el.id.replace('section-', '');
+    if (el.open) openSections.add(id);
+    else openSections.delete(id);
+  });
+
+  // Overall progress
+  const allTasks = data.stages.flatMap(s => s.sections.flatMap(sec => sec.tasks));
+  const totalDone = allTasks.filter(t => t.done).length;
+  const totalAll = allTasks.length;
+  const totalPct = totalAll ? Math.round((totalDone / totalAll) * 100) : 0;
+  const overallFillClass = totalPct === 100 ? 'progress-fill green' : 'progress-fill';
+
+  const stagesHtml = data.stages.map((s, i) => renderStage(s, i)).join('');
+  const activeLabel = activeStageLabel(data.stages);
+
+  app.innerHTML = `
+    <header class="hero">
+      <svg class="hero-silhouette" viewBox="0 0 800 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M60 220 L60 200 Q62 185 80 175 L180 155 Q220 120 300 105 L480 100 Q560 100 610 115 L700 145 Q730 155 740 175 L745 200 L745 220 Z" fill="white"/>
+        <path d="M200 155 Q240 95 310 80 L490 78 Q560 80 600 115 L680 145 L200 155 Z" fill="white"/>
+        <path d="M210 152 Q248 100 315 85 L380 82 L380 152 Z" fill="rgba(0,0,0,0.3)"/>
+        <path d="M490 80 Q555 82 598 112 L660 143 L490 152 Z" fill="rgba(0,0,0,0.3)"/>
+        <path d="M130 220 Q130 195 155 195 Q180 195 180 220 Z" fill="#0f1117"/>
+        <circle cx="155" cy="222" r="30" fill="white"/>
+        <circle cx="155" cy="222" r="18" fill="#0f1117"/>
+        <circle cx="155" cy="222" r="8" fill="white"/>
+        <path d="M580 220 Q580 195 605 195 Q630 195 630 220 Z" fill="#0f1117"/>
+        <circle cx="605" cy="222" r="30" fill="white"/>
+        <circle cx="605" cy="222" r="18" fill="#0f1117"/>
+        <circle cx="605" cy="222" r="8" fill="white"/>
+        <rect x="55" y="195" width="20" height="28" rx="4" fill="white"/>
+        <rect x="725" y="195" width="20" height="28" rx="4" fill="white"/>
+        <rect x="68" y="185" width="28" height="14" rx="3" fill="rgba(0,0,0,0.4)"/>
+        <rect x="704" y="185" width="28" height="14" rx="3" fill="rgba(0,0,0,0.4)"/>
+        <line x1="370" y1="105" x2="375" y2="220" stroke="rgba(0,0,0,0.25)" stroke-width="2"/>
+        <line x1="490" y1="100" x2="490" y2="220" stroke="rgba(0,0,0,0.25)" stroke-width="2"/>
+        <ellipse cx="400" cy="255" rx="340" ry="12" fill="rgba(0,0,0,0.3)"/>
+      </svg>
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Build Tracker &middot; Active Project</div>
+        <h1>1997 Volvo <span>S90</span></h1>
+        <p class="hero-subtitle">${esc(meta.subtitle)}</p>
+        <div class="stats-bar">
+          <div class="stat-chip">
+            <span class="label">Power</span>
+            <span>${meta.stockHp} hp</span>
+            <span class="arrow">&#8594;</span>
+            <span class="value-goal">${meta.goalHp}+ hp</span>
+            <span class="label">goal</span>
+          </div>
+          <div class="stat-chip">
+            <span class="label">Torque</span>
+            <span>${meta.stockTorque} lb-ft</span>
+            <span class="arrow">&#8594;</span>
+            <span class="value-goal">${meta.goalTorque}+ lb-ft</span>
+            <span class="label">goal</span>
+          </div>
+          <div class="stat-chip stage-chip">
+            <span class="stage-dot"></span>
+            <span>${esc(activeLabel)}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="overall-progress">
+      <div class="progress-header">
+        <span class="progress-label">Overall Build Progress</span>
+        <span class="progress-pct">${totalDone} / ${totalAll} tasks &nbsp;&middot;&nbsp; ${totalPct}%</span>
+      </div>
+      <div class="progress-track">
+        <div class="${overallFillClass}" style="width:${totalPct}%"></div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      ${stagesHtml}
+    </div>
+
+    <footer class="footer">
+      <div>Resources &amp; Parts</div>
+      <div class="footer-links">
+        <a href="https://www.ipdusa.com" target="_blank" rel="noopener">IPD USA</a>
+        <a href="https://www.fcpeuro.com" target="_blank" rel="noopener">FCP Euro</a>
+        <a href="https://www.turbobricks.com" target="_blank" rel="noopener">Turbobricks</a>
+        <a href="https://www.matthewsvolvosite.com" target="_blank" rel="noopener">MatthewsVolvoSite</a>
+      </div>
+    </footer>
+  `;
+
+  // Attach toggle listeners to details elements for open state tracking
+  document.querySelectorAll('details.section').forEach(el => {
+    el.addEventListener('toggle', () => {
+      const id = el.id.replace('section-', '');
+      if (el.open) openSections.add(id);
+      else openSections.delete(id);
+    });
+  });
+}
+
+// ── Landing screen ───────────────────────────────────────
+function renderLanding() {
+  const app = document.getElementById('app');
+  const hasApi = typeof window.showDirectoryPicker === 'function';
+
+  app.innerHTML = `
+    <div class="landing">
+      <div class="landing-logo">Build Tracker &middot; S90 Project</div>
+      <h1>1997 Volvo <span>S90</span></h1>
+      <p class="landing-sub">Track your build progress, mark tasks complete, and save changes directly to disk.</p>
+      ${hasApi
+        ? `<button class="btn-open" id="btn-open" onclick="openFolder()">
+             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+               <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+             </svg>
+             Open Project Folder
+           </button>
+           <p class="landing-hint">Pick the <code>s90-tracker</code> folder to load your build data</p>`
+        : `<div class="no-api-msg">
+             &#9888; File System Access API is not supported in this browser.<br>
+             Please use Chrome, Edge, or another Chromium-based browser.
+           </div>`
+      }
+    </div>
+  `;
+}
+
+// ── Init ─────────────────────────────────────────────────
+renderLanding();
+</script>
+</body>
+</html>

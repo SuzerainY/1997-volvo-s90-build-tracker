@@ -1,0 +1,590 @@
+{
+  "meta": {
+    "title": "1997 Volvo S90 — Build Tracker",
+    "subtitle": "B6304S 2.9L Inline-6 · RWD · 133,000 miles · AW30-43 4-Speed Auto",
+    "stockHp": 181,
+    "goalHp": 350,
+    "stockTorque": 199,
+    "goalTorque": 400
+  },
+  "stages": [
+    {
+      "id": "stage0",
+      "label": "S0",
+      "title": "The Foundation",
+      "goal": "Restore factory reliability",
+      "target": "~181 hp (solid baseline)",
+      "status": "active",
+      "sections": [
+        {
+          "id": "timing-belt",
+          "title": "Timing Belt Service",
+          "tasks": [
+            {
+              "id": "tb-belt",
+              "text": "Timing belt replaced",
+              "done": true
+            },
+            {
+              "id": "tb-tensioner",
+              "text": "Hydraulic belt tensioner replaced",
+              "done": true
+            },
+            {
+              "id": "tb-idler",
+              "text": "Idler pulley / roller replaced",
+              "done": true
+            },
+            {
+              "id": "tb-troller",
+              "text": "Tensioner roller replaced",
+              "done": true
+            },
+            {
+              "id": "tb-wp",
+              "text": "Water pump replaced",
+              "done": true
+            },
+            {
+              "id": "tb-thermo",
+              "text": "Thermostat and housing",
+              "done": false,
+              "note": "Quick standalone job — no belt removal needed. Stuck-open = runs cool and rich. Stuck-closed = overheating.",
+              "tag": "parts-in-hand"
+            }
+          ]
+        },
+        {
+          "id": "brakes",
+          "title": "Brakes",
+          "upNext": true,
+          "tasks": [
+            {
+              "id": "br-rotors",
+              "text": "New rotors and pads all around",
+              "note": "EBC Greenstuff pads recommended — solid daily-driver upgrade over stock.",
+              "done": false
+            },
+            {
+              "id": "br-fluid",
+              "text": "Flush brake fluid with DOT 4",
+              "done": false
+            },
+            {
+              "id": "br-lines",
+              "text": "Inspect brake lines — replace with stainless steel braided lines",
+              "note": "Better pedal feel and longevity. Inspect for cracking first.",
+              "done": false
+            },
+            {
+              "id": "br-calipers",
+              "text": "Rebuild or replace calipers if sticking",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "cooling",
+          "title": "Cooling System Overhaul",
+          "tasks": [
+            {
+              "id": "co-hoses",
+              "text": "Replace all coolant hoses (upper, lower, heater core, expansion tank hoses)",
+              "done": false
+            },
+            {
+              "id": "co-tank",
+              "text": "New expansion tank",
+              "note": "Plastic becomes brittle over time — known failure point on this platform.",
+              "done": false
+            },
+            {
+              "id": "co-flush",
+              "text": "Flush and refill with Volvo-spec coolant (blue/green phosphate-free)",
+              "done": false
+            },
+            {
+              "id": "co-rad",
+              "text": "Inspect radiator — consider aftermarket aluminum unit if original",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ignition",
+          "title": "Ignition System Refresh",
+          "tasks": [
+            {
+              "id": "ig-plugs",
+              "text": "Spark plugs — NGK or Bosch Platinum, gapped to spec",
+              "done": false
+            },
+            {
+              "id": "ig-coil",
+              "text": "Ignition coil pack",
+              "note": "Replace if any misfires present.",
+              "done": false
+            },
+            {
+              "id": "ig-wires",
+              "text": "Spark plug wires — Bougicord or OEM-quality set",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "fuel",
+          "title": "Fuel System Cleanup",
+          "tasks": [
+            {
+              "id": "fu-filter",
+              "text": "New fuel filter (inline, under the car)",
+              "done": false
+            },
+            {
+              "id": "fu-inject",
+              "text": "Fuel injector cleaning or replacement — Bosch OEM",
+              "done": false
+            },
+            {
+              "id": "fu-fpr",
+              "text": "Inspect fuel pressure regulator for leaks",
+              "done": false
+            },
+            {
+              "id": "fu-tb",
+              "text": "Clean throttle body and idle air control valve",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "suspension",
+          "title": "Suspension & Chassis Refresh",
+          "tasks": [
+            {
+              "id": "su-bushings",
+              "text": "Replace all control arm bushings (front and rear)",
+              "done": false
+            },
+            {
+              "id": "su-shocks",
+              "text": "New front struts and rear shocks",
+              "note": "Bilstein B4 OEM-replacement or Bilstein HD for a slightly firmer ride.",
+              "done": false
+            },
+            {
+              "id": "su-mounts",
+              "text": "New strut mounts and bump stops",
+              "done": false
+            },
+            {
+              "id": "su-sway",
+              "text": "Inspect and replace sway bar end links and bushings",
+              "done": false
+            },
+            {
+              "id": "su-tierod",
+              "text": "New tie rod ends and ball joints (inspect first)",
+              "done": false
+            },
+            {
+              "id": "su-align",
+              "text": "Alignment after all suspension work",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "transmission",
+          "title": "Transmission Service",
+          "tasks": [
+            {
+              "id": "tr-fluid",
+              "text": "Drain and refill transmission fluid — Dexron III / Mercon",
+              "done": false
+            },
+            {
+              "id": "tr-filter",
+              "text": "Replace transmission filter and pan gasket",
+              "done": false
+            },
+            {
+              "id": "tr-mount",
+              "text": "Inspect transmission mount — replace if cracked or sagging",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "misc",
+          "title": "Miscellaneous",
+          "tasks": [
+            {
+              "id": "mi-pcv",
+              "text": "PCV system — clean or replace PCV valve and hoses",
+              "note": "Oil sludge prevention. Don't skip this.",
+              "done": false
+            },
+            {
+              "id": "mi-vac",
+              "text": "Vacuum hoses — replace any cracked or brittle lines",
+              "note": "Common cause of idle issues and check engine lights.",
+              "done": false
+            },
+            {
+              "id": "mi-mounts",
+              "text": "Motor mounts — replace if torn",
+              "done": false
+            },
+            {
+              "id": "mi-belts",
+              "text": "All accessory / serpentine belts",
+              "done": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage1",
+      "label": "S1",
+      "title": "Breathing Mods",
+      "goal": "Let the engine breathe",
+      "target": "~200–210 hp",
+      "status": "locked",
+      "sections": [
+        {
+          "id": "s1-intake-exhaust",
+          "title": "Intake, Exhaust & ECU",
+          "tasks": [
+            {
+              "id": "s1-airbox",
+              "text": "Airbox modification / high-flow panel filter (K&N or equivalent drop-in)",
+              "done": false
+            },
+            {
+              "id": "s1-manifold",
+              "text": "Intake manifold inspection — clean carbon buildup, fresh gasket",
+              "done": false
+            },
+            {
+              "id": "s1-header",
+              "text": "Performance exhaust header / manifold (tubular steel or ported stock)",
+              "done": false
+            },
+            {
+              "id": "s1-catback",
+              "text": "Cat-back exhaust — 2.5-inch mandrel-bent system",
+              "note": "Magnaflow, Borla, or custom stainless. Don't go larger than 2.5\" on a NA 2.9L.",
+              "done": false
+            },
+            {
+              "id": "s1-cat",
+              "text": "High-flow sports catalyst (if emissions laws allow)",
+              "done": false
+            },
+            {
+              "id": "s1-ecu",
+              "text": "ECU tune — piggyback (Apexi S-AFC), Motronic 4.4 swap, or standalone (Megasquirt)",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s1-cam",
+          "title": "Camshaft",
+          "tasks": [
+            {
+              "id": "s1-camshaft",
+              "text": "Fast road camshaft — ~10–15° more duration, mild profile for daily driving",
+              "note": "Requires timing belt removal — plan accordingly. Single biggest mechanical mod at this stage.",
+              "done": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage2",
+      "label": "S2",
+      "title": "Deeper Breathing & Fuel",
+      "goal": "Push the NA ceiling",
+      "target": "~220–250 hp",
+      "status": "locked",
+      "sections": [
+        {
+          "id": "s2-head",
+          "title": "Head Work",
+          "tasks": [
+            {
+              "id": "s2-port",
+              "text": "Head porting and polishing — port matching, bowl blending, exhaust port polish",
+              "done": false
+            },
+            {
+              "id": "s2-valves",
+              "text": "Larger valves (if available for B6304S — even 1mm helps flow)",
+              "done": false
+            },
+            {
+              "id": "s2-vj",
+              "text": "Three-angle valve job",
+              "done": false
+            },
+            {
+              "id": "s2-intman",
+              "text": "Ported / upgraded intake manifold",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s2-fuel-cam",
+          "title": "Fuel System & Camshaft",
+          "tasks": [
+            {
+              "id": "s2-injectors",
+              "text": "High-flow fuel injectors (~20% over stock capacity)",
+              "done": false
+            },
+            {
+              "id": "s2-pump",
+              "text": "Upgraded in-tank fuel pump",
+              "done": false
+            },
+            {
+              "id": "s2-fpr",
+              "text": "Adjustable fuel pressure regulator",
+              "done": false
+            },
+            {
+              "id": "s2-cam",
+              "text": "More aggressive camshaft (step up from Stage 1 cam)",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s2-ecu-drivetrain",
+          "title": "ECU, Exhaust & Drivetrain",
+          "tasks": [
+            {
+              "id": "s2-header",
+              "text": "Tubular equal-length exhaust header (if not done at Stage 1)",
+              "done": false
+            },
+            {
+              "id": "s2-ecu",
+              "text": "Standalone ECU (Megasquirt or Haltech) — mandatory at this stage",
+              "done": false
+            },
+            {
+              "id": "s2-dyno",
+              "text": "Dyno tune",
+              "done": false
+            },
+            {
+              "id": "s2-tc",
+              "text": "Upgraded torque converter (higher stall speed)",
+              "done": false
+            },
+            {
+              "id": "s2-txcooler",
+              "text": "Transmission cooler",
+              "done": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage3",
+      "label": "S3",
+      "title": "Forced Induction",
+      "goal": "Genuinely fast sleeper",
+      "target": "~280–350+ hp",
+      "status": "locked",
+      "sections": [
+        {
+          "id": "s3-turbo",
+          "title": "Turbo Kit",
+          "tasks": [
+            {
+              "id": "s3-turbo",
+              "text": "Turbocharger — Garrett GT2860RS or similar (or Volvo TD04 donor unit)",
+              "done": false
+            },
+            {
+              "id": "s3-exman",
+              "text": "Custom exhaust manifold with turbo flange (fabricated or sourced)",
+              "done": false
+            },
+            {
+              "id": "s3-wg",
+              "text": "External wastegate — Tial 38mm or similar",
+              "done": false
+            },
+            {
+              "id": "s3-ic",
+              "text": "Front-mount intercooler (FMIC) — ~24×12×3\" core",
+              "done": false
+            },
+            {
+              "id": "s3-pipes",
+              "text": "Charge piping (aluminum / silicone)",
+              "done": false
+            },
+            {
+              "id": "s3-bov",
+              "text": "Blow-off valve / bypass valve",
+              "done": false
+            },
+            {
+              "id": "s3-oillines",
+              "text": "Turbo oil feed and return lines",
+              "done": false
+            },
+            {
+              "id": "s3-coollines",
+              "text": "Turbo coolant lines",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s3-internals",
+          "title": "Engine Internals",
+          "tasks": [
+            {
+              "id": "s3-pistons",
+              "text": "Forged lower-compression pistons (~8.5:1 CR)",
+              "note": "Stock is ~10.7:1 — must come down for safe boost levels.",
+              "done": false
+            },
+            {
+              "id": "s3-rods",
+              "text": "Forged connecting rods",
+              "done": false
+            },
+            {
+              "id": "s3-hg",
+              "text": "Multi-layer steel (MLS) head gasket",
+              "done": false
+            },
+            {
+              "id": "s3-arp",
+              "text": "ARP head studs",
+              "done": false
+            },
+            {
+              "id": "s3-balance",
+              "text": "Engine balancing and blueprinting",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s3-fuel-mgmt",
+          "title": "Fuel & Engine Management",
+          "tasks": [
+            {
+              "id": "s3-injectors",
+              "text": "High-flow injectors (550cc+ for 300 hp target)",
+              "done": false
+            },
+            {
+              "id": "s3-pump",
+              "text": "High-flow fuel pump",
+              "done": false
+            },
+            {
+              "id": "s3-ecu",
+              "text": "Standalone ECU — Megasquirt / Haltech",
+              "done": false
+            },
+            {
+              "id": "s3-wb",
+              "text": "Wideband O2 sensor and gauge",
+              "done": false
+            },
+            {
+              "id": "s3-boost",
+              "text": "Boost controller (manual or electronic)",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s3-drivetrain",
+          "title": "Drivetrain",
+          "tasks": [
+            {
+              "id": "s3-trans",
+              "text": "Rebuilt / strengthened AW30-43 automatic (upgraded clutch packs, shift kit)",
+              "note": "OR manual swap — Getrag 260 5-speed from 960/S90 donor.",
+              "done": false
+            },
+            {
+              "id": "s3-diff",
+              "text": "Upgraded differential / LSD — Quaife ATB",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s3-cooling-oil",
+          "title": "Cooling & Oiling",
+          "tasks": [
+            {
+              "id": "s3-rad",
+              "text": "Upgraded aluminum radiator",
+              "done": false
+            },
+            {
+              "id": "s3-oilcool",
+              "text": "Oil cooler — sandwich plate + remote cooler",
+              "done": false
+            },
+            {
+              "id": "s3-catchcan",
+              "text": "PCV catch can",
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "s3-suspension",
+          "title": "Suspension & Brakes",
+          "tasks": [
+            {
+              "id": "s3-coilovers",
+              "text": "Coilovers — adjustable, 960/S90 platform",
+              "done": false
+            },
+            {
+              "id": "s3-sway",
+              "text": "Upgraded sway bars — IPD kit for 960 platform",
+              "done": false
+            },
+            {
+              "id": "s3-poly",
+              "text": "Polyurethane bushings throughout",
+              "done": false
+            },
+            {
+              "id": "s3-subframe",
+              "text": "Subframe reinforcement",
+              "done": false
+            },
+            {
+              "id": "s3-brakes",
+              "text": "Big brake kit — Brembo or Wilwood, braided lines, DOT 4 racing fluid",
+              "done": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
