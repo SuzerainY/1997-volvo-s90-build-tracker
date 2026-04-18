@@ -23,27 +23,32 @@
             {
               "id": "tb-belt",
               "text": "Timing belt replaced",
-              "done": true
+              "done": true,
+              "note": "Done at 133,800 miles. Next service due at ~203,800 miles or 7 years, whichever comes first."
             },
             {
               "id": "tb-tensioner",
               "text": "Hydraulic belt tensioner replaced",
-              "done": true
+              "done": true,
+              "note": "Done at 133,800 miles."
             },
             {
               "id": "tb-idler",
               "text": "Idler pulley / roller replaced",
-              "done": true
+              "done": true,
+              "note": "Done at 133,800 miles."
             },
             {
               "id": "tb-troller",
               "text": "Tensioner roller replaced",
-              "done": true
+              "done": true,
+              "note": "Done at 133,800 miles."
             },
             {
               "id": "tb-wp",
               "text": "Water pump replaced",
-              "done": true
+              "done": true,
+              "note": "Done at 133,800 miles."
             },
             {
               "id": "tb-thermo",
@@ -100,13 +105,27 @@
             },
             {
               "id": "co-flush",
-              "text": "Flush and refill with Volvo-spec coolant (blue/green phosphate-free)",
-              "done": false
+              "text": "Drain and refill with Volvo-spec HOAT coolant (phosphate-free, 50/50 with distilled water)",
+              "done": true,
+              "note": "Completed. Next coolant service in 3 years."
             },
             {
               "id": "co-rad",
-              "text": "Inspect radiator — consider aftermarket aluminum unit if original",
-              "done": false
+              "text": "Inspect radiator — already replaced by previous owner",
+              "done": true,
+              "note": "Radiator has been replaced. Not original. Confirmed during coolant drain and refill."
+            },
+            {
+              "id": "co-transcooler",
+              "text": "Standalone transmission fluid cooler",
+              "done": false,
+              "note": "Separates ATF cooling from the radiator. Eliminates the risk of radiator barrier failure contaminating the transmission. Cheap insurance for a 500k-mile car."
+            },
+            {
+              "id": "co-braidedlines",
+              "text": "Braided stainless steel fluid lines (coolant and trans cooler)",
+              "done": false,
+              "note": "Better durability and heat resistance than rubber. Replace coolant hoses and trans cooler lines with braided stainless."
             }
           ]
         },
@@ -387,11 +406,6 @@
             {
               "id": "s2-tc",
               "text": "Upgraded torque converter (higher stall speed)",
-              "done": false
-            },
-            {
-              "id": "s2-txcooler",
-              "text": "Transmission cooler",
               "done": false
             }
           ]
