@@ -5,7 +5,8 @@
     "stockHp": 181,
     "goalHp": 350,
     "stockTorque": 199,
-    "goalTorque": 400
+    "goalTorque": 400,
+    "currentMileage": 134000
   },
   "stages": [
     {
@@ -221,12 +222,12 @@
             {
               "id": "tr-fluid",
               "text": "Drain and refill transmission fluid — Dexron III / Mercon",
-              "done": false
+              "done": true
             },
             {
               "id": "tr-filter",
               "text": "Replace transmission filter and pan gasket",
-              "done": false
+              "done": true
             },
             {
               "id": "tr-mount",
@@ -599,6 +600,44 @@
           ]
         }
       ]
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "oil-change",
+      "label": "Oil Change",
+      "intervalMiles": 3000,
+      "lastMiles": 133500
+    },
+    {
+      "id": "timing-belt",
+      "label": "Timing Belt + Water Pump",
+      "intervalMiles": 70000,
+      "lastMiles": 133800
+    },
+    {
+      "id": "coolant-flush",
+      "label": "Coolant Flush",
+      "intervalMonths": 36,
+      "lastDate": "2026-04-12"
+    },
+    {
+      "id": "trans-fluid",
+      "label": "Transmission Fluid",
+      "intervalMiles": 30000,
+      "lastMiles": 134000
+    },
+    {
+      "id": "brake-fluid",
+      "label": "Brake Fluid",
+      "intervalMonths": 24,
+      "lastDate": null
+    },
+    {
+      "id": "spark-plugs",
+      "label": "Spark Plugs",
+      "intervalMiles": 30000,
+      "lastMiles": null
     }
   ]
 }

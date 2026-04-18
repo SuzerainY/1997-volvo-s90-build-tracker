@@ -11,28 +11,28 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:          #0f1117;
-  --bg-card:     #161b27;
-  --bg-section:  #1a2035;
-  --bg-hover:    #1e2640;
+  --bg:          #f5f6fa;
+  --bg-card:     #ffffff;
+  --bg-section:  #f0f1f5;
+  --bg-hover:    #f0f1f5;
   --volvo-blue:  #003057;
   --volvo-light: #0a5fa8;
-  --accent:      #1a7fd4;
-  --accent-glow: rgba(26,127,212,0.25);
-  --green:       #22c55e;
-  --green-dim:   rgba(34,197,94,0.15);
-  --amber:       #f59e0b;
-  --amber-dim:   rgba(245,158,11,0.15);
-  --red:         #ef4444;
-  --text-primary:   #e8eaf0;
-  --text-secondary: #8b93a8;
-  --text-muted:     #4a5268;
-  --border:      rgba(255,255,255,0.07);
-  --border-card: rgba(255,255,255,0.1);
+  --accent:      #1570b8;
+  --accent-glow: rgba(21,112,184,0.25);
+  --green:       #15803d;
+  --green-dim:   rgba(21,128,61,0.15);
+  --amber:       #b45309;
+  --amber-dim:   rgba(180,83,9,0.15);
+  --red:         #d92626;
+  --text-primary:   #1a1d26;
+  --text-secondary: #5f6880;
+  --text-muted:     #697080;
+  --border:      rgba(0,0,0,0.08);
+  --border-card: rgba(0,0,0,0.1);
   --radius:      12px;
   --radius-sm:   8px;
-  --shadow:      0 4px 24px rgba(0,0,0,0.4);
-  --shadow-lg:   0 8px 48px rgba(0,0,0,0.6);
+  --shadow:      0 1px 3px rgba(0,0,0,0.08);
+  --shadow-lg:   0 4px 12px rgba(0,0,0,0.1);
 }
 
 html { scroll-behavior: smooth; }
@@ -54,7 +54,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
-  background: linear-gradient(160deg, #0a1628 0%, #0f1117 50%, #0d1520 100%);
+  background: linear-gradient(160deg, #e8eaf0 0%, #f5f6fa 50%, #eef0f5 100%);
   text-align: center;
 }
 
@@ -64,8 +64,8 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(26,127,212,0.12);
-  border: 1px solid rgba(26,127,212,0.25);
+  background: rgba(21,112,184,0.12);
+  border: 1px solid rgba(21,112,184,0.25);
   border-radius: 100px;
   padding: 5px 14px;
   margin-bottom: 28px;
@@ -79,21 +79,19 @@ body {
   width: 6px; height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-  animation: pulse 2s ease-in-out infinite;
 }
 
 .landing h1 {
   font-size: clamp(32px, 6vw, 56px);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 12px;
   line-height: 1.1;
 }
 
 .landing h1 span {
-  background: linear-gradient(135deg, #4da6ff 0%, #1a7fd4 50%, #0a5fa8 100%);
+  background: linear-gradient(135deg, #4da6ff 0%, #1570b8 50%, #0a5fa8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -110,7 +108,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, var(--volvo-light), var(--accent));
+  background: var(--accent);
   color: #fff;
   font-family: inherit;
   font-size: 15px;
@@ -119,14 +117,14 @@ body {
   border-radius: var(--radius);
   padding: 14px 28px;
   cursor: pointer;
-  box-shadow: 0 4px 24px rgba(26,127,212,0.35);
+  box-shadow: var(--shadow);
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
   letter-spacing: -0.01em;
 }
 
 .btn-open:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 32px rgba(26,127,212,0.5);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-open:active {
@@ -148,10 +146,10 @@ body {
 .no-api-msg {
   margin-top: 24px;
   padding: 14px 20px;
-  background: rgba(239,68,68,0.1);
-  border: 1px solid rgba(239,68,68,0.25);
+  background: rgba(217,38,38,0.08);
+  border: 1px solid rgba(217,38,38,0.2);
   border-radius: var(--radius-sm);
-  color: #fca5a5;
+  color: var(--red);
   font-size: 13px;
   max-width: 420px;
 }
@@ -175,20 +173,20 @@ body {
 .save-indicator.visible { opacity: 1; }
 
 .save-indicator.saving {
-  background: rgba(26,127,212,0.15);
-  border: 1px solid rgba(26,127,212,0.3);
+  background: rgba(21,112,184,0.15);
+  border: 1px solid rgba(21,112,184,0.3);
   color: var(--accent);
 }
 
 .save-indicator.saved {
-  background: rgba(34,197,94,0.15);
-  border: 1px solid rgba(34,197,94,0.3);
+  background: rgba(21,128,61,0.15);
+  border: 1px solid rgba(21,128,61,0.3);
   color: var(--green);
 }
 
 .save-indicator.error {
-  background: rgba(239,68,68,0.15);
-  border: 1px solid rgba(239,68,68,0.3);
+  background: rgba(217,38,38,0.15);
+  border: 1px solid rgba(217,38,38,0.3);
   color: var(--red);
 }
 
@@ -196,7 +194,7 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #0a1628 0%, #0f1117 50%, #0d1520 100%);
+  background: linear-gradient(160deg, #e8eaf0 0%, #f5f6fa 50%, #eef0f5 100%);
   border-bottom: 1px solid var(--border-card);
   padding: 64px 24px 56px;
 }
@@ -206,8 +204,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,48,87,0.55) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 80% 50%, rgba(26,127,212,0.08) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(21,112,184,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 50%, rgba(21,112,184,0.03) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -216,7 +214,7 @@ body {
   right: -20px;
   bottom: 0;
   width: 520px;
-  opacity: 0.045;
+  opacity: 0.07;
   pointer-events: none;
   user-select: none;
 }
@@ -240,8 +238,8 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(26,127,212,0.12);
-  border: 1px solid rgba(26,127,212,0.25);
+  background: rgba(21,112,184,0.12);
+  border: 1px solid rgba(21,112,184,0.25);
   border-radius: 100px;
   padding: 4px 12px;
   margin-bottom: 20px;
@@ -252,26 +250,21 @@ body {
   width: 6px; height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-  animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
+/* pulse animation removed — no longer used */
 
 .hero h1 {
   font-size: clamp(28px, 5vw, 52px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
 .hero h1 span {
-  background: linear-gradient(135deg, #4da6ff 0%, #1a7fd4 50%, #0a5fa8 100%);
+  background: linear-gradient(135deg, #4da6ff 0%, #1570b8 50%, #0a5fa8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -296,7 +289,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.03);
   border: 1px solid var(--border-card);
   border-radius: 100px;
   padding: 8px 16px;
@@ -316,8 +309,8 @@ body {
 .stat-chip .value-goal { color: var(--green); font-weight: 700; }
 
 .stat-chip.stage-chip {
-  background: rgba(26,127,212,0.12);
-  border-color: rgba(26,127,212,0.3);
+  background: rgba(21,112,184,0.12);
+  border-color: rgba(21,112,184,0.3);
   color: var(--accent);
 }
 
@@ -325,8 +318,6 @@ body {
   width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--amber);
-  box-shadow: 0 0 8px var(--amber);
-  animation: pulse 2s ease-in-out infinite;
 }
 
 /* ── OVERALL PROGRESS ─────────────────────────────────── */
@@ -359,7 +350,7 @@ body {
 
 .progress-track {
   height: 6px;
-  background: rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.06);
   border-radius: 100px;
   overflow: hidden;
 }
@@ -367,14 +358,12 @@ body {
 .progress-fill {
   height: 100%;
   border-radius: 100px;
-  background: linear-gradient(90deg, var(--volvo-light), var(--accent));
-  box-shadow: 0 0 12px rgba(26,127,212,0.5);
+  background: var(--accent);
   transition: width 0.6s ease;
 }
 
 .progress-fill.green {
-  background: linear-gradient(90deg, #16a34a, var(--green));
-  box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  background: var(--green);
 }
 
 /* ── MAIN LAYOUT ──────────────────────────────────────── */
@@ -397,8 +386,8 @@ body {
 }
 
 .stage-card.active {
-  border-color: rgba(26,127,212,0.35);
-  box-shadow: 0 0 0 1px rgba(26,127,212,0.15), var(--shadow-lg);
+  border-color: rgba(21,112,184,0.35);
+  box-shadow: var(--shadow-lg);
 }
 
 .stage-card.locked {
@@ -429,13 +418,12 @@ body {
 }
 
 .stage-number.active-num {
-  background: linear-gradient(135deg, var(--volvo-blue), var(--volvo-light));
+  background: var(--accent);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(10,95,168,0.4);
 }
 
 .stage-number.locked-num {
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.04);
   color: var(--text-muted);
   border: 1px solid var(--border);
 }
@@ -450,7 +438,7 @@ body {
   margin-bottom: 4px;
 }
 
-.stage-title { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.stage-title { font-size: 18px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
 
 .stage-badge {
   font-size: 10px;
@@ -462,13 +450,13 @@ body {
 }
 
 .badge-active {
-  background: rgba(26,127,212,0.2);
+  background: rgba(21,112,184,0.2);
   color: var(--accent);
-  border: 1px solid rgba(26,127,212,0.35);
+  border: 1px solid rgba(21,112,184,0.35);
 }
 
 .badge-locked {
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.04);
   color: var(--text-muted);
   border: 1px solid var(--border);
 }
@@ -512,7 +500,7 @@ summary.section-toggle:hover { background: var(--bg-hover); }
   flex-shrink: 0;
   width: 20px; height: 20px;
   border-radius: 6px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.04);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -524,8 +512,8 @@ summary.section-toggle:hover { background: var(--bg-hover); }
 
 details.section[open] .section-toggle-icon {
   transform: rotate(90deg);
-  background: rgba(26,127,212,0.15);
-  border-color: rgba(26,127,212,0.3);
+  background: rgba(21,112,184,0.15);
+  border-color: rgba(21,112,184,0.3);
   color: var(--accent);
 }
 
@@ -553,29 +541,23 @@ details.section[open] .section-toggle-icon {
 .status-done {
   background: var(--green-dim);
   color: var(--green);
-  border: 1px solid rgba(34,197,94,0.25);
+  border: 1px solid rgba(21,128,61,0.25);
 }
 
 .status-partial {
-  background: rgba(245,158,11,0.12);
+  background: rgba(180,83,9,0.12);
   color: var(--amber);
-  border: 1px solid rgba(245,158,11,0.25);
+  border: 1px solid rgba(180,83,9,0.25);
 }
 
 .status-upnext {
-  background: rgba(26,127,212,0.15);
-  color: #60b4ff;
-  border: 1px solid rgba(26,127,212,0.35);
-  animation: glow-pulse 2.5s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(26,127,212,0); }
-  50% { box-shadow: 0 0 8px 2px rgba(26,127,212,0.3); }
+  background: rgba(21,112,184,0.15);
+  color: var(--accent);
+  border: 1px solid rgba(21,112,184,0.35);
 }
 
 .status-todo {
-  background: rgba(255,255,255,0.04);
+  background: rgba(0,0,0,0.03);
   color: var(--text-muted);
   border: 1px solid var(--border);
 }
@@ -584,7 +566,7 @@ details.section[open] .section-toggle-icon {
 
 .section-mini-track {
   width: 60px; height: 3px;
-  background: rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.06);
   border-radius: 100px;
   overflow: hidden;
 }
@@ -601,7 +583,7 @@ details.section[open] .section-toggle-icon {
   gap: 10px;
   margin: 0 28px 20px;
   padding: 12px 16px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(0,0,0,0.02);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-size: 12px;
@@ -621,16 +603,16 @@ details.section[open] .section-toggle-icon {
   cursor: pointer;
 }
 
-.task-item:hover { background: rgba(255,255,255,0.04); }
+.task-item:hover { background: rgba(0,0,0,0.03); }
 .task-item.done { opacity: 0.65; }
-.task-item.done:hover { background: rgba(34,197,94,0.04); }
+.task-item.done:hover { background: rgba(21,128,61,0.04); }
 
 .task-item.upnext-item {
-  background: rgba(26,127,212,0.07);
-  border: 1px solid rgba(26,127,212,0.18);
+  background: rgba(21,112,184,0.07);
+  border: 1px solid rgba(21,112,184,0.18);
 }
 
-.task-item.upnext-item:hover { background: rgba(26,127,212,0.11); }
+.task-item.upnext-item:hover { background: rgba(21,112,184,0.11); }
 
 .task-item.locked-task {
   pointer-events: none;
@@ -649,13 +631,13 @@ details.section[open] .section-toggle-icon {
 
 .task-check.checked {
   background: var(--green-dim);
-  border: 1px solid rgba(34,197,94,0.4);
+  border: 1px solid rgba(21,128,61,0.4);
   color: var(--green);
 }
 
 .task-check.unchecked {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.12);
 }
 
 .task-check.locked-check { opacity: 0.35; }
@@ -679,9 +661,9 @@ details.section[open] .section-toggle-icon {
 }
 
 .tag-parts {
-  background: rgba(245,158,11,0.12);
+  background: rgba(180,83,9,0.12);
   color: var(--amber);
-  border: 1px solid rgba(245,158,11,0.25);
+  border: 1px solid rgba(180,83,9,0.25);
 }
 
 /* ── FOOTER ───────────────────────────────────────────── */
@@ -697,7 +679,156 @@ details.section[open] .section-toggle-icon {
 .footer a:hover { text-decoration: underline; }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-top: 8px; }
 
+/* ── MAINTENANCE PANEL ─────────────────────────────────── */
+.maintenance-panel {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+
+.maintenance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.maintenance-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mileage-display {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 6px 14px;
+  background: rgba(21,112,184,0.1);
+  border: 1px solid rgba(21,112,184,0.25);
+  border-radius: 100px;
+}
+
+.mileage-display:hover {
+  background: rgba(21,112,184,0.18);
+}
+
+.mileage-display.no-value {
+  color: var(--text-muted);
+  background: rgba(0,0,0,0.03);
+  border-color: var(--border);
+}
+
+.maintenance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.maint-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  border-left: 3px solid var(--border-card);
+  cursor: pointer;
+}
+
+.maint-card:hover {
+  background: var(--bg-hover);
+}
+
+.maint-card.status-green { border-left-color: var(--green); }
+.maint-card.status-amber { border-left-color: var(--amber); }
+.maint-card.status-red   { border-left-color: var(--red); }
+
+.maint-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.maint-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.maint-status-dot.green { background: var(--green); }
+.maint-status-dot.amber { background: var(--amber); }
+.maint-status-dot.red   { background: var(--red); }
+
+.maint-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.maint-detail:last-child { margin-bottom: 0; }
+
+.maint-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.maint-value.no-data {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ── INLINE EDIT INPUTS ───────────────────────────────── */
+.mileage-input {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(21,112,184,0.1);
+  border: 1px solid rgba(21,112,184,0.4);
+  border-radius: 100px;
+  padding: 5px 14px;
+  outline: none;
+  width: 140px;
+}
+
+.mileage-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(21,112,184,0.2);
+}
+
+.maint-input {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  outline: none;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.maint-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(21,112,184,0.2);
+}
+
 /* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .maintenance-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 600px) {
   .hero { padding: 48px 16px 44px; }
   .main-content { padding: 24px 16px 60px; }
@@ -707,6 +838,9 @@ details.section[open] .section-toggle-icon {
   .locked-notice { margin: 0 20px 16px; }
   .stats-bar { gap: 8px; }
   .stat-chip { font-size: 12px; padding: 6px 12px; }
+  .maintenance-grid { grid-template-columns: 1fr; }
+  .maintenance-panel { padding: 24px 16px 0; }
+  .maintenance-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 </style>
 </head>
@@ -715,6 +849,7 @@ details.section[open] .section-toggle-icon {
 <div id="save-indicator" class="save-indicator" aria-live="polite"></div>
 <div id="app"></div>
 
+<script src="functions.js"></script>
 <script>
 // ── State ────────────────────────────────────────────────
 let dirHandle = null;
@@ -740,6 +875,7 @@ async function openFolder() {
   try {
     dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
     const data = await readData();
+    initializeDefaults(data);
     currentData = data;
     render(data);
   } catch (err) {
@@ -788,6 +924,130 @@ function toggleTask(stageId, sectionId, taskId) {
   render(currentData);
   // Async save
   saveData(currentData);
+}
+
+// ── Mileage inline editing ───────────────────────────────
+function updateMileage(value) {
+  if (!validateMileage(value)) return;
+  currentData.meta.currentMileage = parseInt(value, 10);
+  render(currentData);
+  saveData(currentData);
+}
+
+function startMileageEdit() {
+  const display = document.querySelector('.mileage-display');
+  if (!display) return;
+  const currentVal = currentData.meta.currentMileage;
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'mileage-input';
+  input.value = currentVal !== null && currentVal !== undefined ? String(currentVal) : '';
+  input.placeholder = 'Enter mileage';
+
+  let committed = false;
+  function commit() {
+    if (committed) return;
+    committed = true;
+    updateMileage(input.value);
+    // If invalid, updateMileage does nothing — re-render to restore display
+    if (!validateMileage(input.value)) {
+      render(currentData);
+    }
+  }
+
+  input.addEventListener('keydown', function(e) {
+    e.stopPropagation();
+    if (e.key === 'Enter') {
+      commit();
+    } else if (e.key === 'Escape') {
+      committed = true;
+      render(currentData);
+    }
+  });
+
+  input.addEventListener('blur', function() {
+    commit();
+  });
+
+  input.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+
+  display.replaceWith(input);
+  input.focus();
+  input.select();
+}
+
+// ── Service logging inline editing ───────────────────────
+function startServiceEdit(itemId) {
+  const item = currentData.maintenance.find(m => m.id === itemId);
+  if (!item) return;
+
+  const card = document.querySelector(`.maint-card[data-id="${itemId}"]`);
+  if (!card) return;
+
+  // Check if already editing
+  if (card.querySelector('.maint-input')) return;
+
+  const isMileage = 'intervalMiles' in item;
+  const input = document.createElement('input');
+  input.className = 'maint-input';
+
+  if (isMileage) {
+    input.type = 'text';
+    input.placeholder = 'Enter mileage';
+    const currentMileage = currentData.meta.currentMileage;
+    input.value = currentMileage !== null && currentMileage !== undefined ? String(currentMileage) : '';
+  } else {
+    input.type = 'date';
+    // Pre-populate with today's date
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    input.value = yyyy + '-' + mm + '-' + dd;
+  }
+
+  let committed = false;
+  function commit() {
+    if (committed) return;
+    committed = true;
+    const result = logService(item, input.value);
+    if (result !== null) {
+      // Replace the item in the maintenance array
+      const idx = currentData.maintenance.findIndex(m => m.id === itemId);
+      if (idx !== -1) {
+        currentData.maintenance[idx] = result;
+      }
+      render(currentData);
+      saveData(currentData);
+    } else {
+      // Invalid input — cancel and re-render
+      render(currentData);
+    }
+  }
+
+  input.addEventListener('keydown', function(e) {
+    e.stopPropagation();
+    if (e.key === 'Enter') {
+      commit();
+    } else if (e.key === 'Escape') {
+      committed = true;
+      render(currentData);
+    }
+  });
+
+  input.addEventListener('blur', function() {
+    commit();
+  });
+
+  input.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+
+  card.appendChild(input);
+  input.focus();
+  if (isMileage) input.select();
 }
 
 // ── Helpers ──────────────────────────────────────────────
@@ -946,6 +1206,84 @@ function renderStage(stage, index) {
     </article>`;
 }
 
+// ── Maintenance panel render ─────────────────────────────
+function renderMaintenanceItem(item, currentMileage) {
+  const statusInfo = computeStatus(item, currentMileage);
+  const status = statusInfo.status;
+  const isMileage = 'intervalMiles' in item;
+
+  // "Last" value
+  let lastValue;
+  if (isMileage) {
+    lastValue = item.lastMiles !== null && item.lastMiles !== undefined
+      ? esc(String(item.lastMiles)) + ' mi'
+      : null;
+  } else {
+    lastValue = item.lastDate !== null && item.lastDate !== undefined
+      ? esc(item.lastDate)
+      : null;
+  }
+  const lastDisplay = lastValue !== null
+    ? `<span class="maint-value">${lastValue}</span>`
+    : `<span class="maint-value no-data">Not recorded</span>`;
+
+  // "Due" value
+  let dueDisplay;
+  if (isMileage) {
+    if (item.lastMiles === null || item.lastMiles === undefined) {
+      dueDisplay = `<span class="maint-value no-data">Set mileage to calculate</span>`;
+    } else if (currentMileage === null || currentMileage === undefined) {
+      dueDisplay = `<span class="maint-value no-data">Set mileage to calculate</span>`;
+    } else {
+      dueDisplay = `<span class="maint-value">${esc(String(statusInfo.dueMiles))} mi</span>`;
+    }
+  } else {
+    if (item.lastDate === null || item.lastDate === undefined) {
+      dueDisplay = `<span class="maint-value no-data">Set date to calculate</span>`;
+    } else {
+      dueDisplay = `<span class="maint-value">${esc(statusInfo.dueDate)}</span>`;
+    }
+  }
+
+  return `
+    <div class="maint-card status-${esc(status)}" data-id="${esc(item.id)}" onclick="startServiceEdit('${esc(item.id)}')">
+      <div class="maint-label">
+        <span class="maint-status-dot ${esc(status)}"></span>
+        ${esc(item.label)}
+      </div>
+      <div class="maint-detail">
+        <span>Last</span>
+        ${lastDisplay}
+      </div>
+      <div class="maint-detail">
+        <span>Due</span>
+        ${dueDisplay}
+      </div>
+    </div>`;
+}
+
+function renderMaintenancePanel(data) {
+  const currentMileage = data.meta.currentMileage;
+  const mileageDisplay = currentMileage !== null && currentMileage !== undefined
+    ? `<span class="mileage-display" onclick="startMileageEdit()">${esc(String(currentMileage))} mi</span>`
+    : `<span class="mileage-display no-value" onclick="startMileageEdit()">Set current mileage</span>`;
+
+  const itemsHtml = (data.maintenance || [])
+    .map(item => renderMaintenanceItem(item, currentMileage))
+    .join('');
+
+  return `
+    <div class="maintenance-panel">
+      <div class="maintenance-header">
+        <h2>Maintenance Tracker</h2>
+        ${mileageDisplay}
+      </div>
+      <div class="maintenance-grid">
+        ${itemsHtml}
+      </div>
+    </div>`;
+}
+
 // ── Main render ──────────────────────────────────────────
 function render(data) {
   const app = document.getElementById('app');
@@ -971,20 +1309,20 @@ function render(data) {
   app.innerHTML = `
     <header class="hero">
       <svg class="hero-silhouette" viewBox="0 0 800 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M60 220 L60 200 Q62 185 80 175 L180 155 Q220 120 300 105 L480 100 Q560 100 610 115 L700 145 Q730 155 740 175 L745 200 L745 220 Z" fill="white"/>
-        <path d="M200 155 Q240 95 310 80 L490 78 Q560 80 600 115 L680 145 L200 155 Z" fill="white"/>
+        <path d="M60 220 L60 200 Q62 185 80 175 L180 155 Q220 120 300 105 L480 100 Q560 100 610 115 L700 145 Q730 155 740 175 L745 200 L745 220 Z" fill="#1a1d26"/>
+        <path d="M200 155 Q240 95 310 80 L490 78 Q560 80 600 115 L680 145 L200 155 Z" fill="#1a1d26"/>
         <path d="M210 152 Q248 100 315 85 L380 82 L380 152 Z" fill="rgba(0,0,0,0.3)"/>
         <path d="M490 80 Q555 82 598 112 L660 143 L490 152 Z" fill="rgba(0,0,0,0.3)"/>
-        <path d="M130 220 Q130 195 155 195 Q180 195 180 220 Z" fill="#0f1117"/>
-        <circle cx="155" cy="222" r="30" fill="white"/>
-        <circle cx="155" cy="222" r="18" fill="#0f1117"/>
-        <circle cx="155" cy="222" r="8" fill="white"/>
-        <path d="M580 220 Q580 195 605 195 Q630 195 630 220 Z" fill="#0f1117"/>
-        <circle cx="605" cy="222" r="30" fill="white"/>
-        <circle cx="605" cy="222" r="18" fill="#0f1117"/>
-        <circle cx="605" cy="222" r="8" fill="white"/>
-        <rect x="55" y="195" width="20" height="28" rx="4" fill="white"/>
-        <rect x="725" y="195" width="20" height="28" rx="4" fill="white"/>
+        <path d="M130 220 Q130 195 155 195 Q180 195 180 220 Z" fill="#f5f6fa"/>
+        <circle cx="155" cy="222" r="30" fill="#1a1d26"/>
+        <circle cx="155" cy="222" r="18" fill="#f5f6fa"/>
+        <circle cx="155" cy="222" r="8" fill="#1a1d26"/>
+        <path d="M580 220 Q580 195 605 195 Q630 195 630 220 Z" fill="#f5f6fa"/>
+        <circle cx="605" cy="222" r="30" fill="#1a1d26"/>
+        <circle cx="605" cy="222" r="18" fill="#f5f6fa"/>
+        <circle cx="605" cy="222" r="8" fill="#1a1d26"/>
+        <rect x="55" y="195" width="20" height="28" rx="4" fill="#1a1d26"/>
+        <rect x="725" y="195" width="20" height="28" rx="4" fill="#1a1d26"/>
         <rect x="68" y="185" width="28" height="14" rx="3" fill="rgba(0,0,0,0.4)"/>
         <rect x="704" y="185" width="28" height="14" rx="3" fill="rgba(0,0,0,0.4)"/>
         <line x1="370" y1="105" x2="375" y2="220" stroke="rgba(0,0,0,0.25)" stroke-width="2"/>
@@ -1027,6 +1365,8 @@ function render(data) {
         <div class="${overallFillClass}" style="width:${totalPct}%"></div>
       </div>
     </div>
+
+    ${renderMaintenancePanel(data)}
 
     <div class="main-content">
       ${stagesHtml}
