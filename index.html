@@ -666,6 +666,23 @@ details.section[open] .section-toggle-icon {
   border: 1px solid rgba(180,83,9,0.25);
 }
 
+.tag-cost {
+  background: rgba(21,112,184,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(21,112,184,0.2);
+}
+
+.cost-summary {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.cost-summary .cost-value {
+  color: var(--accent);
+}
+
 /* ── FOOTER ───────────────────────────────────────────── */
 .footer {
   text-align: center;
@@ -1069,6 +1086,17 @@ function calcProgress(tasks) {
   return { done, total: tasks.length, pct: tasks.length ? Math.round((done / tasks.length) * 100) : 0 };
 }
 
+function calcCost(tasks) {
+  let total = 0;
+  let spent = 0;
+  for (const t of tasks) {
+    const c = t.cost || 0;
+    total += c;
+    if (t.done) spent += c;
+  }
+  return { total, spent, remaining: total - spent };
+}
+
 function sectionStatus(section) {
   const { done, total } = calcProgress(section.tasks);
   if (total === 0) return 'todo';
@@ -1111,9 +1139,12 @@ function renderTask(task, isUpNext, isLocked, stageId, sectionId) {
     ? `<p class="task-note">${esc(task.note)}</p>`
     : '';
 
-  const tagHtml = task.tag === 'parts-in-hand'
-    ? `<div class="task-tags"><span class="tag tag-parts">Parts in Hand</span></div>`
-    : '';
+  const tagHtml = (() => {
+    const tags = [];
+    if (task.tag === 'parts-in-hand') tags.push('<span class="tag tag-parts">Parts in Hand</span>');
+    if (task.cost != null && task.cost > 0) tags.push(`<span class="tag tag-cost">~$${fmtNum(task.cost)}</span>`);
+    return tags.length ? `<div class="task-tags">${tags.join('')}</div>` : '';
+  })();
 
   return `
     <li class="${itemClass}"${clickAttr}>
@@ -1128,6 +1159,7 @@ function renderTask(task, isUpNext, isLocked, stageId, sectionId) {
 
 function renderSection(section, isLocked, stageId) {
   const { done, total, pct } = calcProgress(section.tasks);
+  const sectionCost = calcCost(section.tasks);
   const isOpen = openSections.has(section.id);
   const openAttr = isOpen ? ' open' : '';
   const badge = sectionStatusBadge(section);
@@ -1137,6 +1169,10 @@ function renderSection(section, isLocked, stageId) {
     .map(t => renderTask(t, isUpNext, isLocked, stageId, section.id))
     .join('');
 
+  const costLabel = sectionCost.total > 0
+    ? `<span class="cost-summary">~<span class="cost-value">$${fmtNum(sectionCost.total)}</span></span>`
+    : '';
+
   return `
     <details class="section" id="section-${esc(section.id)}"${openAttr}>
       <summary class="section-toggle">
@@ -1145,6 +1181,7 @@ function renderSection(section, isLocked, stageId) {
           <div class="section-title">
             ${esc(section.title)}
             ${badge}
+            ${costLabel}
           </div>
           <div class="section-mini-progress">
             <div class="section-mini-track">
@@ -1174,8 +1211,13 @@ function renderStage(stage, index) {
   // Aggregate progress across all sections
   const allTasks = stage.sections.flatMap(s => s.tasks);
   const { done, total, pct } = calcProgress(allTasks);
+  const stageCost = calcCost(allTasks);
   const fillClass = pct === 100 ? 'progress-fill green' : 'progress-fill';
   const pctColor = pct === 100 ? 'var(--green)' : 'var(--accent)';
+
+  const costLine = stageCost.total > 0
+    ? ` &nbsp;&middot;&nbsp; Est. ~$${fmtNum(stageCost.total)}${stageCost.spent > 0 ? ` ($${fmtNum(stageCost.spent)} spent)` : ''}`
+    : '';
 
   const lockedNotice = isLocked && index > 0
     ? `<div class="locked-notice">
@@ -1195,7 +1237,7 @@ function renderStage(stage, index) {
             <span class="stage-title">${esc(stage.title)}</span>
             ${badgeHtml}
           </div>
-          <p class="stage-goal">${esc(stage.goal)} &nbsp;&middot;&nbsp; Target: <strong>${esc(stage.target)}</strong></p>
+          <p class="stage-goal">${esc(stage.goal)} &nbsp;&middot;&nbsp; Target: <strong>${esc(stage.target)}</strong>${costLine}</p>
           <div class="stage-progress">
             <div class="progress-track">
               <div class="${fillClass}" style="width:${pct}%"></div>
@@ -1307,6 +1349,10 @@ function render(data) {
   const totalAll = allTasks.length;
   const totalPct = totalAll ? Math.round((totalDone / totalAll) * 100) : 0;
   const overallFillClass = totalPct === 100 ? 'progress-fill green' : 'progress-fill';
+  const overallCost = calcCost(allTasks);
+  const overallCostText = overallCost.total > 0
+    ? ` &nbsp;&middot;&nbsp; ~$${fmtNum(overallCost.total)} est.${overallCost.spent > 0 ? ` ($${fmtNum(overallCost.spent)} spent)` : ''}`
+    : '';
 
   const stagesHtml = data.stages.map((s, i) => renderStage(s, i)).join('');
   const activeLabel = activeStageLabel(data.stages);
@@ -1364,7 +1410,7 @@ function render(data) {
     <div class="overall-progress">
       <div class="progress-header">
         <span class="progress-label">Overall Build Progress</span>
-        <span class="progress-pct">${totalDone} / ${totalAll} tasks &nbsp;&middot;&nbsp; ${totalPct}%</span>
+        <span class="progress-pct">${totalDone} / ${totalAll} tasks &nbsp;&middot;&nbsp; ${totalPct}%${overallCostText}</span>
       </div>
       <div class="progress-track">
         <div class="${overallFillClass}" style="width:${totalPct}%"></div>

@@ -25,38 +25,44 @@
               "id": "tb-belt",
               "text": "Timing belt replaced",
               "done": true,
-              "note": "Done at 133,800 miles. Next service due at ~203,800 miles or 7 years, whichever comes first."
+              "note": "Done at 133,800 miles. Next service due at ~203,800 miles or 7 years, whichever comes first.",
+              "cost": 35
             },
             {
               "id": "tb-tensioner",
               "text": "Hydraulic belt tensioner replaced",
               "done": true,
-              "note": "Done at 133,800 miles."
+              "note": "Done at 133,800 miles.",
+              "cost": 65
             },
             {
               "id": "tb-idler",
               "text": "Idler pulley / roller replaced",
               "done": true,
-              "note": "Done at 133,800 miles."
+              "note": "Done at 133,800 miles.",
+              "cost": 25
             },
             {
               "id": "tb-troller",
               "text": "Tensioner roller replaced",
               "done": true,
-              "note": "Done at 133,800 miles."
+              "note": "Done at 133,800 miles.",
+              "cost": 25
             },
             {
               "id": "tb-wp",
               "text": "Water pump replaced",
               "done": true,
-              "note": "Done at 133,800 miles."
+              "note": "Done at 133,800 miles.",
+              "cost": 55
             },
             {
               "id": "tb-thermo",
               "text": "Thermostat and housing",
               "done": false,
               "note": "Quick standalone job — no belt removal needed. Stuck-open = runs cool and rich. Stuck-closed = overheating.",
-              "tag": "parts-in-hand"
+              "tag": "parts-in-hand",
+              "cost": 30
             }
           ]
         },
@@ -69,23 +75,27 @@
               "id": "br-rotors",
               "text": "New rotors and pads all around",
               "note": "EBC Greenstuff pads recommended — solid daily-driver upgrade over stock.",
-              "done": false
+              "done": false,
+              "cost": 300
             },
             {
               "id": "br-fluid",
               "text": "Flush brake fluid with DOT 4",
-              "done": false
+              "done": false,
+              "cost": 20
             },
             {
               "id": "br-lines",
               "text": "Inspect brake lines — replace with stainless steel braided lines",
               "note": "Better pedal feel and longevity. Inspect for cracking first.",
-              "done": false
+              "done": false,
+              "cost": 120
             },
             {
               "id": "br-calipers",
               "text": "Rebuild or replace calipers if sticking",
-              "done": false
+              "done": false,
+              "cost": 200
             }
           ]
         },
@@ -96,37 +106,43 @@
             {
               "id": "co-hoses",
               "text": "Replace all coolant hoses (upper, lower, heater core, expansion tank hoses)",
-              "done": false
+              "done": false,
+              "cost": 120
             },
             {
               "id": "co-tank",
               "text": "New expansion tank",
               "note": "Plastic becomes brittle over time — known failure point on this platform.",
-              "done": false
+              "done": false,
+              "cost": 45
             },
             {
               "id": "co-flush",
               "text": "Drain and refill with Volvo-spec HOAT coolant (phosphate-free, 50/50 with distilled water)",
               "done": true,
-              "note": "Completed. Next coolant service in 3 years."
+              "note": "Completed. Next coolant service in 3 years.",
+              "cost": 30
             },
             {
               "id": "co-rad",
               "text": "Inspect radiator — already replaced by previous owner",
               "done": true,
-              "note": "Radiator has been replaced. Not original. Confirmed during coolant drain and refill."
+              "note": "Radiator has been replaced. Not original. Confirmed during coolant drain and refill.",
+              "cost": 0
             },
             {
               "id": "co-transcooler",
               "text": "Standalone transmission fluid cooler",
               "done": false,
-              "note": "Separates ATF cooling from the radiator. Eliminates the risk of radiator barrier failure contaminating the transmission. Cheap insurance for a 500k-mile car."
+              "note": "Separates ATF cooling from the radiator. Eliminates the risk of radiator barrier failure contaminating the transmission. Cheap insurance for a 500k-mile car.",
+              "cost": 100
             },
             {
               "id": "co-braidedlines",
               "text": "Braided stainless steel fluid lines (coolant and trans cooler)",
               "done": false,
-              "note": "Better durability and heat resistance than rubber. Replace coolant hoses and trans cooler lines with braided stainless."
+              "note": "Better durability and heat resistance than rubber. Replace coolant hoses and trans cooler lines with braided stainless.",
+              "cost": 150
             }
           ]
         },
@@ -137,18 +153,21 @@
             {
               "id": "ig-plugs",
               "text": "Spark plugs — NGK or Bosch Platinum, gapped to spec",
-              "done": false
+              "done": false,
+              "cost": 30
             },
             {
               "id": "ig-coil",
               "text": "Ignition coil pack",
               "note": "Replace if any misfires present.",
-              "done": false
+              "done": false,
+              "cost": 80
             },
             {
               "id": "ig-wires",
               "text": "Spark plug wires — Bougicord or OEM-quality set",
-              "done": false
+              "done": false,
+              "cost": 60
             }
           ]
         },
@@ -159,22 +178,26 @@
             {
               "id": "fu-filter",
               "text": "New fuel filter (inline, under the car)",
-              "done": false
+              "done": false,
+              "cost": 20
             },
             {
               "id": "fu-inject",
               "text": "Fuel injector cleaning or replacement — Bosch OEM",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "fu-fpr",
               "text": "Inspect fuel pressure regulator for leaks",
-              "done": false
+              "done": false,
+              "cost": 0
             },
             {
               "id": "fu-tb",
               "text": "Clean throttle body and idle air control valve",
-              "done": false
+              "done": false,
+              "cost": 15
             }
           ]
         },
@@ -185,33 +208,46 @@
             {
               "id": "su-bushings",
               "text": "Replace all control arm bushings (front and rear)",
-              "done": false
+              "done": false,
+              "cost": 180
             },
             {
               "id": "su-shocks",
               "text": "New front struts and rear shocks",
               "note": "Bilstein B4 OEM-replacement or Bilstein HD for a slightly firmer ride.",
-              "done": false
+              "done": false,
+              "cost": 450
             },
             {
               "id": "su-mounts",
               "text": "New strut mounts and bump stops",
-              "done": false
+              "done": false,
+              "cost": 100
             },
             {
               "id": "su-sway",
               "text": "Inspect and replace sway bar end links and bushings",
-              "done": false
+              "done": false,
+              "cost": 60
             },
             {
               "id": "su-tierod",
               "text": "New tie rod ends and ball joints (inspect first)",
-              "done": false
+              "done": false,
+              "cost": 120
+            },
+            {
+              "id": "su-wheels",
+              "text": "New wheels and tires",
+              "note": "Stock is 15\" or 16\" depending on trim. 16×7 or 17×7.5 is the sweet spot — clears brakes, fits fenders, no rubbing. Bolt pattern: 5×108. Hub bore: 65.1mm. Stick with a reasonable offset (ET35–ET43) to avoid clearance issues.",
+              "done": false,
+              "cost": 800
             },
             {
               "id": "su-align",
               "text": "Alignment after all suspension work",
-              "done": false
+              "done": false,
+              "cost": 100
             }
           ]
         },
@@ -222,17 +258,20 @@
             {
               "id": "tr-fluid",
               "text": "Drain and refill transmission fluid — Dexron III / Mercon",
-              "done": true
+              "done": true,
+              "cost": 30
             },
             {
               "id": "tr-filter",
               "text": "Replace transmission filter and pan gasket",
-              "done": true
+              "done": true,
+              "cost": 40
             },
             {
               "id": "tr-mount",
               "text": "Inspect transmission mount — replace if cracked or sagging",
-              "done": false
+              "done": false,
+              "cost": 50
             }
           ]
         },
@@ -244,23 +283,27 @@
               "id": "mi-pcv",
               "text": "PCV system — clean or replace PCV valve and hoses",
               "note": "Oil sludge prevention. Don't skip this.",
-              "done": false
+              "done": false,
+              "cost": 45
             },
             {
               "id": "mi-vac",
               "text": "Vacuum hoses — replace any cracked or brittle lines",
               "note": "Common cause of idle issues and check engine lights.",
-              "done": false
+              "done": false,
+              "cost": 30
             },
             {
               "id": "mi-mounts",
               "text": "Motor mounts — replace if torn",
-              "done": false
+              "done": false,
+              "cost": 120
             },
             {
               "id": "mi-belts",
               "text": "All accessory / serpentine belts",
-              "done": false
+              "done": false,
+              "cost": 40
             }
           ]
         }
@@ -281,33 +324,39 @@
             {
               "id": "s1-airbox",
               "text": "Airbox modification / high-flow panel filter (K&N or equivalent drop-in)",
-              "done": false
+              "done": false,
+              "cost": 55
             },
             {
               "id": "s1-manifold",
               "text": "Intake manifold inspection — clean carbon buildup, fresh gasket",
-              "done": false
+              "done": false,
+              "cost": 25
             },
             {
               "id": "s1-header",
               "text": "Performance exhaust header / manifold (tubular steel or ported stock)",
-              "done": false
+              "done": false,
+              "cost": 400
             },
             {
               "id": "s1-catback",
               "text": "Cat-back exhaust — 2.5-inch mandrel-bent system",
               "note": "Magnaflow, Borla, or custom stainless. Don't go larger than 2.5\" on a NA 2.9L.",
-              "done": false
+              "done": false,
+              "cost": 600
             },
             {
               "id": "s1-cat",
               "text": "High-flow sports catalyst (if emissions laws allow)",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "s1-ecu",
               "text": "ECU tune — piggyback (Apexi S-AFC), Motronic 4.4 swap, or standalone (Megasquirt)",
-              "done": false
+              "done": false,
+              "cost": 500
             }
           ]
         },
@@ -319,7 +368,8 @@
               "id": "s1-camshaft",
               "text": "Fast road camshaft — ~10–15° more duration, mild profile for daily driving",
               "note": "Requires timing belt removal — plan accordingly. Single biggest mechanical mod at this stage.",
-              "done": false
+              "done": false,
+              "cost": 350
             }
           ]
         }
@@ -340,22 +390,26 @@
             {
               "id": "s2-port",
               "text": "Head porting and polishing — port matching, bowl blending, exhaust port polish",
-              "done": false
+              "done": false,
+              "cost": 800
             },
             {
               "id": "s2-valves",
               "text": "Larger valves (if available for B6304S — even 1mm helps flow)",
-              "done": false
+              "done": false,
+              "cost": 250
             },
             {
               "id": "s2-vj",
               "text": "Three-angle valve job",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "s2-intman",
               "text": "Ported / upgraded intake manifold",
-              "done": false
+              "done": false,
+              "cost": 300
             }
           ]
         },
@@ -366,22 +420,26 @@
             {
               "id": "s2-injectors",
               "text": "High-flow fuel injectors (~20% over stock capacity)",
-              "done": false
+              "done": false,
+              "cost": 300
             },
             {
               "id": "s2-pump",
               "text": "Upgraded in-tank fuel pump",
-              "done": false
+              "done": false,
+              "cost": 120
             },
             {
               "id": "s2-fpr",
               "text": "Adjustable fuel pressure regulator",
-              "done": false
+              "done": false,
+              "cost": 100
             },
             {
               "id": "s2-cam",
               "text": "More aggressive camshaft (step up from Stage 1 cam)",
-              "done": false
+              "done": false,
+              "cost": 400
             }
           ]
         },
@@ -392,22 +450,26 @@
             {
               "id": "s2-header",
               "text": "Tubular equal-length exhaust header (if not done at Stage 1)",
-              "done": false
+              "done": false,
+              "cost": 500
             },
             {
               "id": "s2-ecu",
               "text": "Standalone ECU (Megasquirt or Haltech) — mandatory at this stage",
-              "done": false
+              "done": false,
+              "cost": 900
             },
             {
               "id": "s2-dyno",
               "text": "Dyno tune",
-              "done": false
+              "done": false,
+              "cost": 500
             },
             {
               "id": "s2-tc",
               "text": "Upgraded torque converter (higher stall speed)",
-              "done": false
+              "done": false,
+              "cost": 500
             }
           ]
         }
@@ -428,42 +490,50 @@
             {
               "id": "s3-turbo",
               "text": "Turbocharger — Garrett GT2860RS or similar (or Volvo TD04 donor unit)",
-              "done": false
+              "done": false,
+              "cost": 1200
             },
             {
               "id": "s3-exman",
               "text": "Custom exhaust manifold with turbo flange (fabricated or sourced)",
-              "done": false
+              "done": false,
+              "cost": 600
             },
             {
               "id": "s3-wg",
               "text": "External wastegate — Tial 38mm or similar",
-              "done": false
+              "done": false,
+              "cost": 250
             },
             {
               "id": "s3-ic",
               "text": "Front-mount intercooler (FMIC) — ~24×12×3\" core",
-              "done": false
+              "done": false,
+              "cost": 300
             },
             {
               "id": "s3-pipes",
               "text": "Charge piping (aluminum / silicone)",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "s3-bov",
               "text": "Blow-off valve / bypass valve",
-              "done": false
+              "done": false,
+              "cost": 80
             },
             {
               "id": "s3-oillines",
               "text": "Turbo oil feed and return lines",
-              "done": false
+              "done": false,
+              "cost": 75
             },
             {
               "id": "s3-coollines",
               "text": "Turbo coolant lines",
-              "done": false
+              "done": false,
+              "cost": 60
             }
           ]
         },
@@ -475,27 +545,32 @@
               "id": "s3-pistons",
               "text": "Forged lower-compression pistons (~8.5:1 CR)",
               "note": "Stock is ~10.7:1 — must come down for safe boost levels.",
-              "done": false
+              "done": false,
+              "cost": 800
             },
             {
               "id": "s3-rods",
               "text": "Forged connecting rods",
-              "done": false
+              "done": false,
+              "cost": 600
             },
             {
               "id": "s3-hg",
               "text": "Multi-layer steel (MLS) head gasket",
-              "done": false
+              "done": false,
+              "cost": 80
             },
             {
               "id": "s3-arp",
               "text": "ARP head studs",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "s3-balance",
               "text": "Engine balancing and blueprinting",
-              "done": false
+              "done": false,
+              "cost": 600
             }
           ]
         },
@@ -506,27 +581,32 @@
             {
               "id": "s3-injectors",
               "text": "High-flow injectors (550cc+ for 300 hp target)",
-              "done": false
+              "done": false,
+              "cost": 350
             },
             {
               "id": "s3-pump",
               "text": "High-flow fuel pump",
-              "done": false
+              "done": false,
+              "cost": 150
             },
             {
               "id": "s3-ecu",
               "text": "Standalone ECU — Megasquirt / Haltech",
-              "done": false
+              "done": false,
+              "cost": 900
             },
             {
               "id": "s3-wb",
               "text": "Wideband O2 sensor and gauge",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "s3-boost",
               "text": "Boost controller (manual or electronic)",
-              "done": false
+              "done": false,
+              "cost": 150
             }
           ]
         },
@@ -536,14 +616,16 @@
           "tasks": [
             {
               "id": "s3-trans",
-              "text": "Rebuilt / strengthened AW30-43 automatic (upgraded clutch packs, shift kit)",
+              "text": "Rebuilt / strengthened AW30-40 automatic (upgraded clutch packs, shift kit)",
               "note": "OR manual swap — Getrag 260 5-speed from 960/S90 donor.",
-              "done": false
+              "done": false,
+              "cost": 2500
             },
             {
               "id": "s3-diff",
               "text": "Upgraded differential / LSD — Quaife ATB",
-              "done": false
+              "done": false,
+              "cost": 1200
             }
           ]
         },
@@ -554,17 +636,20 @@
             {
               "id": "s3-rad",
               "text": "Upgraded aluminum radiator",
-              "done": false
+              "done": false,
+              "cost": 250
             },
             {
               "id": "s3-oilcool",
               "text": "Oil cooler — sandwich plate + remote cooler",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "s3-catchcan",
               "text": "PCV catch can",
-              "done": false
+              "done": false,
+              "cost": 60
             }
           ]
         },
@@ -575,27 +660,32 @@
             {
               "id": "s3-coilovers",
               "text": "Coilovers — adjustable, 960/S90 platform",
-              "done": false
+              "done": false,
+              "cost": 1200
             },
             {
               "id": "s3-sway",
               "text": "Upgraded sway bars — IPD kit for 960 platform",
-              "done": false
+              "done": false,
+              "cost": 350
             },
             {
               "id": "s3-poly",
               "text": "Polyurethane bushings throughout",
-              "done": false
+              "done": false,
+              "cost": 300
             },
             {
               "id": "s3-subframe",
               "text": "Subframe reinforcement",
-              "done": false
+              "done": false,
+              "cost": 200
             },
             {
               "id": "s3-brakes",
               "text": "Big brake kit — Brembo or Wilwood, braided lines, DOT 4 racing fluid",
-              "done": false
+              "done": false,
+              "cost": 1800
             }
           ]
         }
