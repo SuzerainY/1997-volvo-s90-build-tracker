@@ -1059,6 +1059,11 @@ function esc(str) {
     .replace(/"/g, '&quot;');
 }
 
+function fmtNum(n) {
+  if (n === null || n === undefined) return '';
+  return Number(n).toLocaleString();
+}
+
 function calcProgress(tasks) {
   const done = tasks.filter(t => t.done).length;
   return { done, total: tasks.length, pct: tasks.length ? Math.round((done / tasks.length) * 100) : 0 };
@@ -1216,7 +1221,7 @@ function renderMaintenanceItem(item, currentMileage) {
   let lastValue;
   if (isMileage) {
     lastValue = item.lastMiles !== null && item.lastMiles !== undefined
-      ? esc(String(item.lastMiles)) + ' mi'
+      ? fmtNum(item.lastMiles) + ' mi'
       : null;
   } else {
     lastValue = item.lastDate !== null && item.lastDate !== undefined
@@ -1235,7 +1240,7 @@ function renderMaintenanceItem(item, currentMileage) {
     } else if (currentMileage === null || currentMileage === undefined) {
       dueDisplay = `<span class="maint-value no-data">Set mileage to calculate</span>`;
     } else {
-      dueDisplay = `<span class="maint-value">${esc(String(statusInfo.dueMiles))} mi</span>`;
+      dueDisplay = `<span class="maint-value">${fmtNum(statusInfo.dueMiles)} mi</span>`;
     }
   } else {
     if (item.lastDate === null || item.lastDate === undefined) {
@@ -1265,7 +1270,7 @@ function renderMaintenanceItem(item, currentMileage) {
 function renderMaintenancePanel(data) {
   const currentMileage = data.meta.currentMileage;
   const mileageDisplay = currentMileage !== null && currentMileage !== undefined
-    ? `<span class="mileage-display" onclick="startMileageEdit()">${esc(String(currentMileage))} mi</span>`
+    ? `<span class="mileage-display" onclick="startMileageEdit()">${fmtNum(currentMileage)} mi</span>`
     : `<span class="mileage-display no-value" onclick="startMileageEdit()">Set current mileage</span>`;
 
   const itemsHtml = (data.maintenance || [])
@@ -1332,20 +1337,20 @@ function render(data) {
       <div class="hero-inner">
         <div class="hero-eyebrow">Build Tracker &middot; Active Project</div>
         <h1>1997 Volvo <span>S90</span></h1>
-        <p class="hero-subtitle">${esc(meta.subtitle)}</p>
+        <p class="hero-subtitle">B6304S2 2.9L Inline-6 · RWD · ${meta.currentMileage != null ? fmtNum(meta.currentMileage) : '—'} miles · AW30-40 4-Speed Auto</p>
         <div class="stats-bar">
           <div class="stat-chip">
             <span class="label">Power</span>
-            <span>${meta.stockHp} hp</span>
+            <span>${fmtNum(meta.stockHp)} hp</span>
             <span class="arrow">&#8594;</span>
-            <span class="value-goal">${meta.goalHp}+ hp</span>
+            <span class="value-goal">${fmtNum(meta.goalHp)}+ hp</span>
             <span class="label">goal</span>
           </div>
           <div class="stat-chip">
             <span class="label">Torque</span>
-            <span>${meta.stockTorque} lb-ft</span>
+            <span>${fmtNum(meta.stockTorque)} lb-ft</span>
             <span class="arrow">&#8594;</span>
-            <span class="value-goal">${meta.goalTorque}+ lb-ft</span>
+            <span class="value-goal">${fmtNum(meta.goalTorque)}+ lb-ft</span>
             <span class="label">goal</span>
           </div>
           <div class="stat-chip stage-chip">

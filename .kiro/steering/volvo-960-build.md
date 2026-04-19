@@ -11,8 +11,8 @@ The user is building a **1997 Volvo S90** as a reliable, fun daily driver with a
 
 ### Current Vehicle Specs
 
-- **Engine:** B6304S — 2.9L naturally aspirated inline-6 (White Block modular family)
-- **Transmission:** AW30-43 4-speed automatic
+- **Engine:** B6304S2 — 2.9L naturally aspirated inline-6 (White Block modular family). US-market detuned variant using B6254S camshafts (lower lift and duration) for emissions compliance.
+- **Transmission:** AW30-40 4-speed electronically controlled automatic (lockup torque converter)
 - **Drivetrain:** Rear-wheel drive
 - **Stock power:** 181 hp @ 5,200 rpm / 199 lb-ft @ 4,100 rpm
 - **Curb weight:** ~3,400 lbs
@@ -64,9 +64,10 @@ Target: ~280–350+ hp. Turbo conversion, forged internals, drivetrain upgrades,
 
 ## Platform Knowledge — Volvo 960 / S90
 
-### Engine: B6304S — Deep Dive
+### Engine: B6304S2 — Deep Dive
 
 - Part of Volvo's **White Block modular engine family** (shares architecture with turbocharged B6304T/B6304T2 variants found in the S80). This shared DNA means turbo-specific parts exist within the Volvo ecosystem.
+- **US-market variant:** The B6304S2 uses the same block and head as the B6304S but was detuned for US emissions regulations by swapping in the B6254S camshafts (lower lift and shorter duration). This dropped output from 204 PS (201 hp) to 181 hp / 199 lb-ft. The upside: the torque curve is broader and flatter, better suited to daily driving. The downside: it leaves easy power on the table — a cam swap back to the European-spec profile (or a fast road cam) is the single biggest mechanical gain at Stage 1.
 - **Configuration:** DOHC inline-6, 4 valves per cylinder (24 total), 2,922 cc displacement.
 - **Compression ratio:** ~10.7:1 (stock NA). For turbo builds, this needs to come down to ~8.5:1 with forged pistons.
 - **Fuel system:** Multi-point fuel injection (Bosch Motronic 4.3 or 4.4 ECU depending on year/variant).
@@ -74,9 +75,9 @@ Target: ~280–350+ hp. Turbo conversion, forged internals, drivetrain upgrades,
 - **Oil capacity:** ~6.1 quarts (5.8L) with filter.
 - **Fuel requirement:** Premium unleaded recommended (91+ octane). The higher compression ratio benefits from premium, and it matters more as mods are added.
 
-#### B6304S Tuning Characteristics (from community and TorqueCars research)
+#### B6304S2 Tuning Characteristics (from community and TorqueCars research)
 
-- The single biggest mechanical mod on a stock B6304S is a **fast road camshaft**. Cam upgrades alter intake/exhaust duration and can dramatically change power output. Stick with a fast road profile for daily driving — motorsport cams create lumpy idle and poor low-RPM tractability that makes daily commuting miserable.
+- The single biggest mechanical mod on a stock B6304S2 is a **fast road camshaft** (or swapping back to the European B6304S cams). The US-spec B6254S cams are the primary reason this engine makes 181 hp instead of 204 hp. Cam upgrades alter intake/exhaust duration and can dramatically change power output. Stick with a fast road profile for daily driving — motorsport cams create lumpy idle and poor low-RPM tractability that makes daily commuting miserable.
 - Intake and exhaust mods alone typically do NOT add meaningful power on this engine. They remove restrictions that become bottlenecks *after* other mods (cam, head work, tune). Do them as part of a package, not in isolation.
 - The stock Motronic 4.3 ECU is locked and cannot be reflashed. Options are: swap to Motronic 4.4 for slightly better tuning flexibility, add a piggyback ECU (Apexi S-AFC), or go standalone (Megasquirt, Haltech). Standalone is mandatory by Stage 2.
 - A proper tune on intake + exhaust + cam can net ~10–15% over stock on NA setup.
@@ -129,9 +130,9 @@ These intervals are more aggressive than factory recommendations, tuned for maxi
 | Brake pads + rotors | As needed (~60,000 miles typical) | Inspect thickness at every tire rotation. |
 | Radiator | Replace every 10–12 years if original | Plastic end tanks fail. Consider aluminum aftermarket for longevity. |
 
-### Transmission: AW30-43 — Deep Dive
+### Transmission: AW30-40 — Deep Dive
 
-- **Aisin-Warner 4-speed automatic.** Durable and generally described as "bullet proof" by the community when properly maintained. Many failures attributed to the transmission are actually electrical — the park/neutral position (PNP) switch or an electronic solenoid valve, not the gearbox itself.
+- **Aisin-Warner AW30-40LE 4-speed electronically controlled automatic** with lockup torque converter. Part of the Toyota A340 family (shared with Lexus GS 300, Toyota Crown, and others). Durable and generally described as "bullet proof" by the community when properly maintained. Many failures attributed to the transmission are actually electrical — the park/neutral position (PNP) switch or an electronic solenoid valve, not the gearbox itself.
 - **Known quirk:** Torque converter lockup behavior can be erratic. Symptoms include RPM dropping momentarily during 1-2 and 2-3 shifts, then recovering. This is often a solenoid or wiring issue, not a mechanical failure.
 - **Killer scenario:** A leaking radiator can contaminate transmission fluid through the integrated transmission cooler. If the radiator's internal barrier fails, coolant mixes with ATF. This destroys the transmission. When replacing the radiator, inspect the transmission cooler lines and fluid color. Bright red = good. Pink/milky = coolant contamination = immediate action needed.
 - Reliable to ~300 hp with a rebuild (upgraded clutch packs, shift kit, higher-stall converter).
@@ -178,7 +179,7 @@ These principles come from Turbobricks, MatthewsVolvoSite, Swedespeed, and Torqu
 3. **Exhaust and intake are supporting mods, not primary power adders.** They remove restrictions that matter after cam/head work/tune. Don't expect bolt-on intake or exhaust alone to transform the car.
 4. **The stock ECU is the bottleneck.** Motronic 4.3 can't be reflashed. Plan for a standalone ECU (Megasquirt is the most popular in the 960 community) by Stage 2 at the latest.
 5. **Dyno tune is mandatory with aggressive cams or forced induction.** Don't bolt in a cam and hope for the best. The fuel and ignition maps need to match.
-6. **The transmission is the weak link, not the engine.** The AW30-43 will give up before the B6304S block does. Plan transmission reinforcement or manual swap for Stage 3.
+6. **The transmission is the weak link, not the engine.** The AW30-40 will give up before the B6304S2 block does. Plan transmission reinforcement or manual swap for Stage 3.
 7. **Cooling is non-negotiable.** An aluminum engine with a 27-year-old cooling system is a warped head waiting to happen. Overhaul the entire cooling system before adding any power.
 8. **Oil changes are the cheapest insurance.** 5,000-mile intervals with full synthetic. The PCV system must be maintained to prevent sludge — a clogged PCV system will destroy seals and contaminate oil.
 9. **Don't over-bore the exhaust.** 2.5 inches is the max for NA; 2.5–3 inches for turbo street builds. Bigger is not better — you lose exhaust velocity and low-end torque.
