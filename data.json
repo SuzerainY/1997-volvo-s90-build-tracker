@@ -334,23 +334,11 @@
               "cost": 25
             },
             {
-              "id": "s1-header",
-              "text": "Performance exhaust header / manifold (tubular steel or ported stock)",
-              "done": false,
-              "cost": 400
-            },
-            {
               "id": "s1-catback",
-              "text": "Cat-back exhaust — 2.5-inch mandrel-bent system",
-              "note": "Magnaflow, Borla, or custom stainless. Don't go larger than 2.5\" on a NA 2.9L.",
+              "text": "Custom cat-back exhaust — 2.5\" 304 stainless, mandrel-bent, local exhaust shop",
+              "note": "No off-the-shelf cat-back exists for the 960/S90. Have a local shop build one: 2.5\" 304 stainless mandrel-bent piping, Magnaflow or Vibrant stainless muffler (2.5\" in/out), include a resonator to prevent highway drone. Single exit. This carries over through all stages — the cat-back stays on the car when the turbo goes in. Keep the stock cat for now — it flows fine at Stage 1 power levels. High-flow cat deferred to Stage 3 where it gets spec'd with the turbo downpipe as a matched set.",
               "done": false,
-              "cost": 600
-            },
-            {
-              "id": "s1-cat",
-              "text": "High-flow sports catalyst (if emissions laws allow)",
-              "done": false,
-              "cost": 200
+              "cost": 550
             },
             {
               "id": "s1-ecu",
@@ -447,12 +435,7 @@
           "id": "s2-ecu-drivetrain",
           "title": "ECU, Exhaust & Drivetrain",
           "tasks": [
-            {
-              "id": "s2-header",
-              "text": "Tubular equal-length exhaust header (if not done at Stage 1)",
-              "done": false,
-              "cost": 500
-            },
+
             {
               "id": "s2-ecu",
               "text": "Standalone ECU (Megasquirt or Haltech) — mandatory at this stage",
@@ -498,6 +481,13 @@
               "text": "Custom exhaust manifold with turbo flange (fabricated or sourced)",
               "done": false,
               "cost": 600
+            },
+            {
+              "id": "s3-downpipe",
+              "text": "Turbo downpipe + high-flow catalytic converter",
+              "note": "Spec'd as a matched set — downpipe from turbo outlet to high-flow cat, then connects to the existing 2.5\" cat-back. The stock cat's flanges don't match turbo plumbing, so this replaces it. 2.5–3\" diameter downpipe tapering to 2.5\" at the cat-back connection. Deferred from Stage 1 to avoid buying a cat twice.",
+              "done": false,
+              "cost": 400
             },
             {
               "id": "s3-wg",
